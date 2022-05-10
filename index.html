@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>portfolio</title>
+
+    <link
+      href="https://webfontworld.github.io/gmarket/GmarketSans.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "GmarketSans";
+      }
+      body {
+        background-image: url("img/mainBG1.png");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+      body.next {
+        background-image: url("img/mainBG2.png");
+        background-size: cover;
+      }
+      #section1 {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+      }
+      @keyframes bounce {
+      }
+      #section1 h1 {
+        margin-top: 11vw;
+        font-size: 9.5vw;
+        display: flex;
+        font-weight: bold;
+        user-select: none;
+      }
+      #section1 h1 > span {
+        display: inline-block;
+        width: 9.5vw;
+        height: 9.5vw;
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      #section1 h1 .o1 {
+        background-image: url("img/basketball1.png");
+      }
+      #section1 h1 .o2 {
+        background-image: url("img/football1.png");
+      }
+      #section1 h1 .o3 {
+        background-image: url("img/tennis_ball1.png");
+      }
+      #section1 p {
+        font-size: 2.5vw;
+        font-weight: bold;
+        user-select: none;
+      }
+      .goBtn {
+        margin-top: 3.5vw;
+        width: 10vw;
+        height: 10vw;
+        border-radius: 50%;
+        background: #30eb00;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2vw;
+        color: #000;
+        font-weight: bold;
+        position: relative;
+        transition: all 0.5s;
+      }
+      .goBtn:hover {
+        background: #ff00ff;
+      }
+      .btnDeco {
+        position: absolute;
+        width: 1vw;
+        height: 9vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        transition: all 0.3s ease-in;
+      }
+      .btnDeco2 {
+        transform: rotateZ(20deg);
+      }
+      .btnDeco3 {
+        transform: rotateZ(40deg);
+      }
+      .btnDeco4 {
+        transform: rotateZ(60deg);
+      }
+      .btnDeco5 {
+        transform: rotateZ(80deg);
+      }
+      .btnDeco6 {
+        transform: rotateZ(100deg);
+      }
+      .btnDeco7 {
+        transform: rotateZ(120deg);
+      }
+      .btnDeco8 {
+        transform: rotateZ(140deg);
+      }
+      .btnDeco9 {
+        transform: rotateZ(160deg);
+      }
+      .goBtn:hover .btnDeco1 {
+        transform: rotateZ(900deg);
+      }
+      .goBtn:hover .btnDeco2 {
+        transform: rotateZ(920deg);
+      }
+      .goBtn:hover .btnDeco3 {
+        transform: rotateZ(940deg);
+      }
+      .goBtn:hover .btnDeco4 {
+        transform: rotateZ(960deg);
+      }
+      .goBtn:hover .btnDeco5 {
+        transform: rotateZ(980deg);
+      }
+      .goBtn:hover .btnDeco6 {
+        transform: rotateZ(1000deg);
+      }
+      .goBtn:hover .btnDeco7 {
+        transform: rotateZ(1020deg);
+      }
+      .goBtn:hover .btnDeco8 {
+        transform: rotateZ(1040deg);
+      }
+      .goBtn:hover .btnDeco9 {
+        transform: rotateZ(1060deg);
+      }
+      .btnDeco > div {
+        width: 0.6vw;
+        height: 0.6vw;
+        border-radius: 50%;
+        background: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <section id="section1">
+        <h1>
+          P<span class="o1"></span>RTF<span class="o2"></span>LI<span
+            class="o3"
+          ></span>
+        </h1>
+        <p>프론트를 위해 달리는 개발자 포트폴리오</p>
+        <div class="goBtn">
+          고고
+          <div class="btnDeco btnDeco1">
+            <div></div>
+            <div></div>
+          </div>
+          <div class="btnDeco btnDeco2">
+            <div></div>
+            <div></div>
+          </div>
+          <div class="btnDeco btnDeco3">
+            <div></div>
+            <div></div>
+          </div>
+          <div class="btnDeco btnDeco4">
+            <div></div>
+            <div></div>
+          </div>
+          <div class="btnDeco btnDeco5">
+            <div></div>
+            <div></div>
+          </div>
+          <div class="btnDeco btnDeco6">
+            <div></div>
+            <div></div>
+          </div>
+          <div class="btnDeco btnDeco7">
+            <div></div>
+            <div></div>
+          </div>
+          <div class="btnDeco btnDeco8">
+            <div></div>
+            <div></div>
+          </div>
+          <div class="btnDeco btnDeco9">
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="section2"></section>
+    </div>
+  </body>
+</html>
