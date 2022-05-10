@@ -21,10 +21,13 @@
         background-position: center center;
         background-repeat: no-repeat;
         background-attachment: fixed;
+        background-size: 101% 101vh;
+        transition: all 1s;
+        overflow: hidden;
       }
       body.next {
-        background-image: url("img/mainBG2.png");
-        background-size: cover;
+        transition: all 1s;
+        background-size: 135% 135vh;
       }
       #section1 {
         width: 100%;
@@ -34,6 +37,12 @@
         justify-content: center;
         align-items: center;
         color: #fff;
+        transition: all 1s;
+      }
+      #section1.next {
+        transform: scale(2);
+        opacity: 0;
+        visibility: hidden;
       }
       #section1 h1 {
         margin-top: 11vw;
@@ -258,5 +267,14 @@
 
       <section id="section2"></section>
     </div>
+
+    <script>
+      document.querySelector(".goBtn").addEventListener("click", () => {
+        document.querySelector("#section1").classList.add("next");
+        setTimeout(() => {
+          document.querySelector("body").classList.add("next");
+        }, 400);
+      });
+    </script>
   </body>
 </html>
