@@ -600,6 +600,17 @@
       //     ease: "back.out(1.7)",
       //   });
       // });
+
+      box1.addEventListener("click", () => {
+        gsap.to(document.querySelector("body"), {
+          duration: 0,
+          background: "#8219C6",
+        });
+
+        // setTimeout(() => {
+        //   location.href = "site/index.html";
+        // }, 3000);
+      });
     </script>
   </body>
 </html>
