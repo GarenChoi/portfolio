@@ -390,11 +390,6 @@
     <script src="../js/skrollr.min.js"></script>
     <script>
       var s = skrollr.init();
-      document.body.style.height =
-        document.getElementById("wrap").offsetWidth -
-        window.innerWidth +
-        window.innerHeight +
-        "px";
 
       function scroll() {
         let scrollTop =
@@ -408,6 +403,11 @@
           ease: "linear",
         });
 
+        document.body.style.height =
+          document.getElementById("wrap").offsetWidth -
+          window.innerWidth +
+          window.innerHeight +
+          "px";
         requestAnimationFrame(scroll);
       }
       scroll();
