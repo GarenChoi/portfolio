@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "GmarketSans";
+        font-weight: bold;
+      }
+
+      body {
+        background: #e3fe78;
+      }
+      #wrap {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+      section {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <section>1</section>
+      <section>2</section>
+      <section>3</section>
+      <section>4</section>
+      <section>5</section>
+    </div>
+    <script src="../js/gsap.min.js"></script>
+    <script src="../js/jquery-2.2.4.min.js"></script>
+    <script src="../js/skrollr.min.js"></script>
+    <script>
+      function scroll() {
+        let scrollTop =
+          window.screenY ||
+          window.pageYOffset ||
+          document.documentElement.scrollTop;
+        // document.querySelector(".scrollTop").innerText = Math.round(scrollTop);
+
+        let wrapWidth = document.getElementById("wrap").offsetWidth;
+        document.body.style.height = `${wrapWidth}px`;
+
+        let viewWidth = wrapWidth - window.innerWidth;
+        let viewHeight = wrapWidth - window.innerHeight;
+        let goLeft = scrollTop * (viewWidth / viewHeight);
+
+        gsap.to("#wrap", {
+          duration: 1,
+          translateX: -goLeft,
+          ease: "linear",
+        });
+
+        requestAnimationFrame(scroll);
+      }
+      scroll();
+      window.addEventListener("resize", scroll);
+    </script>
+  </body>
+</html>

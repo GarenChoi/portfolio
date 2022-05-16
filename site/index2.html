@@ -20,7 +20,6 @@
 
       body {
         background: #e3fe78;
-        width: 100%;
       }
 
       .scrollTop {
@@ -37,19 +36,19 @@
       }
 
       #wrap {
-        display: flex;
         position: fixed;
         top: 0;
         left: 0;
+        display: flex;
       }
 
       #main {
         width: 100vw;
         height: 100vh;
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
-        position: relative;
       }
 
       #main h1 {
@@ -79,7 +78,7 @@
       }
 
       #wrap > section {
-        width: 70vw;
+        width: 100vw;
         height: 100vh;
         position: relative;
         display: flex;
@@ -272,18 +271,10 @@
         <div class="pinkBall"></div>
       </main>
       <section class="section1">
-        <div
-          class="bgText"
-          data-500="transform: translate(0%,-50%)"
-          data-2500="transform: translate(-100%,-50%)"
-        >
+        <div class="bgText">
           <p>STANDARD</p>
         </div>
-        <div
-          class="infoInner"
-          data-500="transform: translate(30%,-80%)"
-          data-1500="transform: translate(0%,-7%)"
-        >
+        <div class="infoInner">
           <div class="infoBox">
             <h3>웹표준 사이트 제작</h3>
             <p>
@@ -302,18 +293,10 @@
         </div>
       </section>
       <section class="section2">
-        <div
-          class="bgText"
-          data-2000="transform: translate(10%,-50%)"
-          data-3500="transform: translate(-120%,-50%)"
-        >
+        <div class="bgText">
           <p>PHP SITE</p>
         </div>
-        <div
-          class="infoInner black"
-          data-2000="transform: translate(30%,80%)"
-          data-3000="transform: translate(0%,7%)"
-        >
+        <div class="infoInner black">
           <div class="infoBox">
             <h3>PHP 사이트 제작</h3>
             <p>
@@ -332,18 +315,10 @@
         </div>
       </section>
       <section class="section3">
-        <div
-          class="bgText"
-          data-3400="transform: translate(10%,-50%)"
-          data-5300="transform: translate(-120%,-50%)"
-        >
+        <div class="bgText">
           <p>REACT SITE</p>
         </div>
-        <div
-          class="infoInner"
-          data-3400="transform: translate(30%,-80%)"
-          data-4300="transform: translate(0%,-7%)"
-        >
+        <div class="infoInner">
           <div class="infoBox">
             <h3>REACT 사이트 제작</h3>
             <p>
@@ -362,18 +337,10 @@
         </div>
       </section>
       <section class="section4">
-        <div
-          class="bgText"
-          data-4700="transform: translate(10%,-50%)"
-          data-6300="transform: translate(-100%,-50%)"
-        >
+        <div class="bgText">
           <p>VUE SITE</p>
         </div>
-        <div
-          class="infoInner black"
-          data-4000="transform: translate(30%,80%)"
-          data-5700="transform: translate(0%,7%)"
-        >
+        <div class="infoInner black">
           <div class="infoBox">
             <h3>VUE 사이트 제작</h3>
             <p>
@@ -410,15 +377,16 @@
           window.scrollY;
         document.querySelector(".scrollTop").innerText = Math.round(scrollTop);
 
-        document.body.style.height =
-          document.getElementById("wrap").offsetWidth -
-          window.innerWidth +
-          window.innerHeight +
-          "px";
+        let wrapWidth = document.getElementById("wrap").offsetWidth;
+        document.body.style.height = `${wrapWidth}px`;
+
+        let viewWidth = wrapWidth - window.innerWidth;
+        let viewHeight = wrapWidth - window.innerHeight;
+        let goLeft = scrollTop * (viewWidth / viewHeight);
 
         gsap.to("#wrap", {
           duration: 1,
-          translateX: `${-scrollTop}px`,
+          translateX: -goLeft,
           ease: "linear",
         });
 
