@@ -20,7 +20,6 @@
 
       body {
         background: #e3fe78;
-        width: 100%;
       }
 
       .scrollTop {
@@ -37,19 +36,19 @@
       }
 
       #wrap {
-        display: flex;
         position: fixed;
         top: 0;
         left: 0;
+        display: flex;
       }
 
       #main {
         width: 100vw;
         height: 100vh;
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
-        position: relative;
       }
 
       #main h1 {
@@ -64,22 +63,8 @@
         display: block;
       }
 
-      #main .pinkBall {
-        background-image: url(../img/pinkball1.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 40vw;
-        height: 40vw;
-        position: absolute;
-        top: 60%;
-        left: 10vw;
-        transform: translateY(-40%);
-        z-index: 1;
-      }
-
       #wrap > section {
-        width: 70vw;
+        width: 100vw;
         height: 100vh;
         position: relative;
         display: flex;
@@ -93,12 +78,21 @@
       section .bgText {
         color: #b3cc4e;
         font-size: 20vw;
+        width: 80%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        overflow: hidden;
+      }
+      section .bgText p {
         position: absolute;
         top: 50%;
-        right: -120%;
+        right: -136vw;
         transform: translateY(-50%);
         z-index: 1;
-        transition: transform 0.3s linear;
+        opacity: 0;
       }
 
       section .infoInner {
@@ -119,10 +113,36 @@
         height: 33vw;
         border: 0.3vw solid #000;
         position: relative;
+        animation: float1 10s infinite;
+        transition: float1, float2 linear;
       }
 
       .infoInner.black .infoBox {
         background-color: #000;
+        animation: float2 10s infinite;
+      }
+      @keyframes float1 {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(2.5%);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+      @keyframes float2 {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-2.5%);
+        }
+
+        100% {
+          transform: translateY(0);
+        }
       }
 
       .infoInner .infoBox h3 {
@@ -230,13 +250,51 @@
         background-color: #00ce7c;
         transform: rotateZ(-90deg);
       }
-      .pinkBlop {
-        width: 10vw;
-        height: 100vh;
-        background-image: url(../img/blob_right.webp);
+      .deco {
         position: absolute;
+      }
+      .pinkBall {
+        background-image: url(../img/pinkball1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 40vw;
+        height: 40vw;
+        top: 60%;
+        left: 10vw;
+        transform: translateY(-40%);
+        z-index: 1;
+      }
+      .smile {
+        width: 12vw;
+        top: -6vw;
+        left: -6vw;
+        z-index: 3;
+      }
+      .pinkBlop {
         right: 0;
-        top: -10vh;
+        top: 40%;
+        transform: translateY(-50%);
+      }
+      .star {
+        width: 80vw;
+        top: -30vw;
+        left: -15vw;
+      }
+      .basketball {
+        width: 12vw;
+        bottom: 3vw;
+        left: -8vw;
+        z-index: 3;
+      }
+      .flag {
+        width: 8vw;
+        bottom: -0.3vw;
+        left: 0;
+      }
+      .eyes {
+        top: 5vw;
+        left: 0;
       }
 
       @media (max-width: 600px) {
@@ -254,6 +312,11 @@
           right: -12.5vw;
         }
 
+        .infoInner.black .viewBox {
+          top: -30px;
+          left: -12.5vw;
+        }
+
         .infoInner .viewBox > span {
           padding: 5px 15px;
         }
@@ -269,21 +332,14 @@
           <span>프론트를 위해</span><span>달리는 개발자 사이트</span
           ><span>모음</span>
         </h1>
-        <div class="pinkBall"></div>
+        <div class="pinkBall deco"></div>
       </main>
       <section class="section1">
-        <div
-          class="bgText"
-          data-500="transform: translate(0%,-50%)"
-          data-2500="transform: translate(-100%,-50%)"
-        >
+        <div class="bgText">
           <p>STANDARD</p>
         </div>
-        <div
-          class="infoInner"
-          data-500="transform: translate(30%,-80%)"
-          data-1500="transform: translate(0%,-7%)"
-        >
+        <div class="infoInner">
+          <img class="smile deco" src="../img/smiley1.png" alt="이미지" />
           <div class="infoBox">
             <h3>웹표준 사이트 제작</h3>
             <p>
@@ -302,18 +358,16 @@
         </div>
       </section>
       <section class="section2">
-        <div
-          class="bgText"
-          data-2000="transform: translate(10%,-50%)"
-          data-3500="transform: translate(-120%,-50%)"
-        >
-          <p>PHP SITE</p>
+        <img class="star deco" src="../img/star1.png" alt="이미지" />
+        <div class="bgText">
+          <p>PHPSITE</p>
         </div>
-        <div
-          class="infoInner black"
-          data-2000="transform: translate(30%,80%)"
-          data-3000="transform: translate(0%,7%)"
-        >
+        <div class="infoInner black">
+          <img
+            class="basketball deco"
+            src="../img/basketball2.png"
+            alt="이미지"
+          />
           <div class="infoBox">
             <h3>PHP 사이트 제작</h3>
             <p>
@@ -332,18 +386,11 @@
         </div>
       </section>
       <section class="section3">
-        <div
-          class="bgText"
-          data-3400="transform: translate(10%,-50%)"
-          data-5300="transform: translate(-120%,-50%)"
-        >
-          <p>REACT SITE</p>
+        <img class="eyes deco" src="../img/eyes1.png" alt="이미지" />
+        <div class="bgText">
+          <p>REACTSITE</p>
         </div>
-        <div
-          class="infoInner"
-          data-3400="transform: translate(30%,-80%)"
-          data-4300="transform: translate(0%,-7%)"
-        >
+        <div class="infoInner">
           <div class="infoBox">
             <h3>REACT 사이트 제작</h3>
             <p>
@@ -362,18 +409,11 @@
         </div>
       </section>
       <section class="section4">
-        <div
-          class="bgText"
-          data-4700="transform: translate(10%,-50%)"
-          data-6300="transform: translate(-100%,-50%)"
-        >
-          <p>VUE SITE</p>
+        <img class="flag deco" src="../img/flag1.png" alt="이미지" />
+        <div class="bgText">
+          <p>VUESITE</p>
         </div>
-        <div
-          class="infoInner black"
-          data-4000="transform: translate(30%,80%)"
-          data-5700="transform: translate(0%,7%)"
-        >
+        <div class="infoInner black">
           <div class="infoBox">
             <h3>VUE 사이트 제작</h3>
             <p>
@@ -391,7 +431,7 @@
           </div>
         </div>
       </section>
-      <div class="pinkBlop"></div>
+      <img class="pinkBlop deco" src="../img/blob_right.webp" alt="이미지" />
       <section>
         <span class="next">NEXT</span>
       </section>
@@ -410,15 +450,36 @@
           window.scrollY;
         document.querySelector(".scrollTop").innerText = Math.round(scrollTop);
 
-        document.body.style.height =
-          document.getElementById("wrap").offsetWidth -
-          window.innerWidth +
-          window.innerHeight +
-          "px";
+        let wrapWidth = document.getElementById("wrap").offsetWidth;
+        document.body.style.height = `${wrapWidth}px`;
+
+        let viewWidth = wrapWidth - window.innerWidth;
+        let viewHeight = wrapWidth - window.innerHeight;
+        let goLeft = scrollTop * (viewWidth / viewHeight);
 
         gsap.to("#wrap", {
           duration: 1,
-          translateX: `${-scrollTop}px`,
+          translateX: -goLeft,
+          ease: "linear",
+        });
+        gsap.to(".pinkBall", {
+          duration: 1,
+          translateX: goLeft * 0.5,
+          ease: "linear",
+        });
+        gsap.to(".star", {
+          duration: 1,
+          translateX: goLeft * 0.2,
+          ease: "linear",
+        });
+        gsap.to(".flag", {
+          duration: 1,
+          translateX: goLeft * 0.2,
+          ease: "linear",
+        });
+        gsap.to(".eyes", {
+          duration: 1,
+          translateX: goLeft * 0.25,
           ease: "linear",
         });
 
@@ -439,6 +500,43 @@
         rotateZ: "360deg",
         repeat: -1,
         ease: "linear",
+      });
+      gsap.fromTo(
+        ".bgText p",
+        { right: "-136vw" },
+        {
+          duration: 8,
+          right: "100vw",
+          ease: "linear",
+          repeat: -1,
+        }
+      );
+      gsap.to(".bgText p", {
+        duration: 0,
+        opacity: 0.6,
+        repeat: -1,
+        repeatdelay: 5,
+      });
+      gsap.to(".smile", {
+        duration: 10,
+        rotateZ: "-360deg",
+        ease: "linear",
+        repeat: -1,
+        repeatdelay: 5,
+      });
+      gsap.to(".basketball", {
+        duration: 100,
+        rotateZ: "360deg",
+        ease: "linear",
+        repeat: -1,
+        repeatdelay: 5,
+      });
+      gsap.to(".eyes", {
+        duration: 15,
+        rotateZ: "-360deg",
+        ease: "linear",
+        repeat: -1,
+        repeatdelay: 5,
       });
     </script>
   </body>
