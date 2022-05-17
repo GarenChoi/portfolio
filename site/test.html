@@ -46,9 +46,9 @@
     <script>
       function scroll() {
         let scrollTop =
-          window.screenY ||
           window.pageYOffset ||
-          document.documentElement.scrollTop;
+          document.documentElement.scrollTop ||
+          window.screenY;
         // document.querySelector(".scrollTop").innerText = Math.round(scrollTop);
 
         let wrapWidth = document.getElementById("wrap").offsetWidth;

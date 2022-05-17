@@ -92,12 +92,21 @@
       section .bgText {
         color: #b3cc4e;
         font-size: 20vw;
+        width: 80%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        overflow: hidden;
+      }
+      section .bgText p {
         position: absolute;
         top: 50%;
-        right: -120%;
+        right: -136vw;
         transform: translateY(-50%);
         z-index: 1;
-        transition: transform 0.3s linear;
+        opacity: 0;
       }
 
       section .infoInner {
@@ -230,12 +239,10 @@
         transform: rotateZ(-90deg);
       }
       .pinkBlop {
-        width: 10vw;
-        height: 100vh;
-        background-image: url(../img/blob_right.webp);
         position: absolute;
         right: 0;
-        top: -10vh;
+        top: 40%;
+        transform: translateY(-50%);
       }
 
       @media (max-width: 600px) {
@@ -251,6 +258,11 @@
         .infoInner .viewBox {
           bottom: -30px;
           right: -12.5vw;
+        }
+
+        .infoInner.black .viewBox {
+          top: -30px;
+          left: -12.5vw;
         }
 
         .infoInner .viewBox > span {
@@ -294,7 +306,7 @@
       </section>
       <section class="section2">
         <div class="bgText">
-          <p>PHP SITE</p>
+          <p>PHPSITE</p>
         </div>
         <div class="infoInner black">
           <div class="infoBox">
@@ -316,7 +328,7 @@
       </section>
       <section class="section3">
         <div class="bgText">
-          <p>REACT SITE</p>
+          <p>REACTSITE</p>
         </div>
         <div class="infoInner">
           <div class="infoBox">
@@ -338,7 +350,7 @@
       </section>
       <section class="section4">
         <div class="bgText">
-          <p>VUE SITE</p>
+          <p>VUESITE</p>
         </div>
         <div class="infoInner black">
           <div class="infoBox">
@@ -358,7 +370,7 @@
           </div>
         </div>
       </section>
-      <div class="pinkBlop"></div>
+      <img class="pinkBlop" src="../img/blob_right.webp" alt="이미지" />
       <section>
         <span class="next">NEXT</span>
       </section>
@@ -407,6 +419,22 @@
         rotateZ: "360deg",
         repeat: -1,
         ease: "linear",
+      });
+      gsap.fromTo(
+        ".bgText p",
+        { right: "-136vw" },
+        {
+          duration: 8,
+          right: "100vw",
+          ease: "linear",
+          repeat: -1,
+        }
+      );
+      gsap.to(".bgText p", {
+        duration: 0,
+        opacity: 0.6,
+        repeat: -1,
+        repeatdelay: 5,
       });
     </script>
   </body>
