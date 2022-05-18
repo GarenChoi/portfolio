@@ -243,11 +243,12 @@
       }
       .next {
         font-size: 3.5vw;
-        padding: 1.5vw 2vw 0.5vw;
+        padding: 0.5em 0.8em 0.3em;
         border: 3px solid #000;
         border-radius: 5vw;
         background-color: #00ce7c;
         transform: rotateZ(-90deg);
+        cursor: pointer;
       }
       .deco {
         position: absolute;
@@ -431,7 +432,7 @@
         </div>
       </section>
       <img class="pinkBlop deco" src="../img/blob_right.webp" alt="이미지" />
-      <section>
+      <section class="section5">
         <span class="next">NEXT</span>
       </section>
     </div>
@@ -533,6 +534,26 @@
         rotateZ: "-360deg",
         ease: "linear",
         repeat: -1,
+      });
+
+      document.querySelector(".next").addEventListener("click", () => {
+        gsap.to(document.querySelector("body"), {
+          duration: 2,
+          background: "#71F78F",
+        });
+        gsap.to("#wrap", {
+          duration: 1.5,
+          opacity: 0,
+        });
+        gsap.to(".section5", {
+          duration: 1.5,
+          opacity: 0,
+          scale: 2,
+        });
+
+        setTimeout(() => {
+          location.href = "../about/index.html";
+        }, 2000);
       });
     </script>
   </body>

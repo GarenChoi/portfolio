@@ -152,6 +152,7 @@
         border-radius: 5vw;
         background-color: #00ce7c;
         transform: rotateZ(-90deg);
+        cursor: pointer;
       }
     </style>
   </head>
@@ -293,6 +294,26 @@
         opacity: 0.6,
         repeat: -1,
         repeatdelay: 5,
+      });
+
+      document.querySelector(".next").addEventListener("click", () => {
+        gsap.to(document.querySelector("body"), {
+          duration: 2,
+          background: "#71F78F",
+        });
+        gsap.to("#wrap", {
+          duration: 1.5,
+          opacity: 0,
+        });
+        gsap.to(".section7", {
+          duration: 1.5,
+          opacity: 0,
+          scale: 2,
+        });
+
+        setTimeout(() => {
+          location.href = "../about/index.html";
+        }, 2000);
       });
     </script>
   </body>

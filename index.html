@@ -80,15 +80,48 @@
     <script src="js/gsap.min.js"></script>
     <script src="js/jquery-2.2.4.min.js"></script>
     <script>
+      gsap.fromTo(
+        "body",
+        {
+          backgroundSize: "200vw 200vh",
+        },
+        {
+          duration: 1.5,
+          backgroundSize: "101vw 101vh",
+          ease: "ease-in-out",
+        }
+      );
+      gsap.fromTo(
+        "body",
+        {
+          scale: 2,
+          opacity: 0,
+        },
+        {
+          duration: 1.5,
+          delay: 1,
+          scale: 1,
+          opacity: 1,
+          ease: "ease-in-out",
+        }
+      );
+
       const box1 = document.querySelector("#section2 .box1");
       const box1H3 = document.querySelector("#section2 .box1 h3");
       const box2 = document.querySelector("#section2 .box2");
       const box2H3 = document.querySelector("#section2 .box2 h3");
       document.querySelector(".goBtn").addEventListener("click", () => {
-        document.querySelector("#section1").classList.add("next");
-        setTimeout(() => {
-          document.querySelector("body").classList.add("next");
-        }, 400);
+        gsap.to("body", {
+          duration: 1,
+          backgroundSize: "125vw 125vh",
+        });
+        gsap.to("#section1", {
+          duration: 1,
+          scale: 2,
+          opacity: 0,
+          visibility: "hidden",
+        });
+
         setTimeout(() => {
           document.querySelector("#section1").style.display = "none";
           document.querySelector("#section2").style.display = "flex";
