@@ -10,10 +10,8 @@
       href="https://webfontworld.github.io/gmarket/GmarketSans.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-      
-    </style>
+    <link rel="stylesheet" href="css/style.css" />
+    <style></style>
   </head>
   <body class="">
     <div id="wrap">
@@ -173,14 +171,33 @@
           duration: 2,
           background: "#E3FE78",
         });
-        gsap.to("#wrap",{
+        gsap.to("#wrap", {
           duration: 1.5,
           opacity: 0,
           scale: 2,
-        })
+        });
 
         setTimeout(() => {
           location.href = "site/index.html";
+        }, 2000);
+      });
+      box2.addEventListener("click", () => {
+        gsap.to(document.querySelector("body"), {
+          duration: 0,
+          background: "#8219C6",
+        });
+        gsap.to(document.querySelector("body"), {
+          duration: 2,
+          background: "#AEE3FF",
+        });
+        gsap.to("#wrap", {
+          duration: 1.5,
+          opacity: 0,
+          scale: 2,
+        });
+
+        setTimeout(() => {
+          location.href = "script/index.html";
         }, 2000);
       });
     </script>
