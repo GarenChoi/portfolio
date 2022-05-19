@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #111;
+        font-family: "Signika Negative", sans-serif, Arial;
+      }
+
+      #viewport {
+        overflow: hidden;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      #content {
+        overflow: visible;
+        width: 100%;
+        /* set a height because the contents are position: absolute, thus natively there's no height */
+        height: 2400px;
+
+        background-image: linear-gradient(
+            rgba(255, 255, 255, 0.07) 2px,
+            transparent 2px
+          ),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.07) 2px, transparent 2px),
+          linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+        background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+        background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: #28a92b;
+        position: absolute;
+        left: 300px;
+        z-index: 100;
+        line-height: 100px;
+        font-size: 50px;
+        text-align: center;
+      }
+      .box.active {
+        background-color: red;
+      }
+
+      .box-a {
+        top: 200px;
+        background-color: #8d3dae;
+      }
+
+      .box-b {
+        top: 600px;
+      }
+
+      .box-c {
+        top: 1000px;
+        background-color: #e26c16;
+      }
+
+      .line {
+        visibility: hidden;
+        width: 2px;
+        height: 3000px;
+        position: absolute;
+        left: 400px;
+        top: 0px;
+        background-color: #777;
+      }
+
+      header .name {
+        color: white;
+      }
+
+      .title {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        color: white;
+        font-weight: 400;
+        font-size: 40px;
+      }
+      header {
+        position: fixed;
+        right: 0px;
+        bottom: 0px;
+        padding: 6px 10px 10px 12px;
+        border-top-left-radius: 26px;
+        z-index: 100;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="viewport">
+      <div id="content">
+        <h1 class="title">smoothScroll() for ScrollTrigger</h1>
+        <div class="box box-a">a</div>
+        <div class="box box-b">b</div>
+        <div class="box box-c">c</div>
+
+        <div class="line"></div>
+      </div>
+    </div>
+
+    <header>
+      <a href="https://greensock.com/scrolltrigger">
+        <img
+          class="greensock-icon"
+          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/scroll-trigger-logo-light.svg"
+          width="200"
+          height="64"
+        />
+      </a>
+    </header>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      /* 
+Setup: wrap your content <div> in another <div> that will serve as the viewport.
+Call this function FIRST (before you create your ScrollTriggers); it sets the 
+default "scroller" for you (otherwise it'd be the window/body, but it should be 
+the content <div>) 
+*/
+      smoothScroll("#content");
+
+      // pin each box for 300px when they hit the top
+      gsap.utils.toArray(".box").forEach((box) => {
+        ScrollTrigger.create({
+          trigger: box,
+          pin: true,
+          start: "top top",
+          end: "+=300",
+        });
+      });
+
+      // this is the helper function that sets it all up. Pass in the content <div> and then the wrapping viewport <div> (can be the elements or selector text). It also sets the default "scroller" to the content so you don't have to do that on all your ScrollTriggers.
+      function smoothScroll(content, viewport, smoothness) {
+        content = gsap.utils.toArray(content)[0];
+        smoothness = smoothness || 1;
+
+        gsap.set(viewport || content.parentNode, {
+          overflow: "hidden",
+          position: "fixed",
+          height: "100%",
+          width: "100%",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+        });
+        gsap.set(content, { overflow: "visible", width: "100%" });
+
+        let getProp = gsap.getProperty(content),
+          setProp = gsap.quickSetter(content, "y", "px"),
+          setScroll = ScrollTrigger.getScrollFunc(window),
+          removeScroll = () => (content.style.overflow = "visible"),
+          killScrub = (trigger) => {
+            let scrub = trigger.getTween
+              ? trigger.getTween()
+              : gsap.getTweensOf(trigger.animation)[0]; // getTween() was added in 3.6.2
+            scrub && scrub.kill();
+            trigger.animation.progress(trigger.progress);
+          },
+          height,
+          isProxyScrolling;
+
+        function refreshHeight() {
+          height = content.clientHeight;
+          content.style.overflow = "visible";
+          document.body.style.height = height + "px";
+          return height - document.documentElement.clientHeight;
+        }
+
+        ScrollTrigger.addEventListener("refresh", () => {
+          removeScroll();
+          requestAnimationFrame(removeScroll);
+        });
+        ScrollTrigger.defaults({ scroller: content });
+        ScrollTrigger.prototype.update = (p) => p; // works around an issue in ScrollTrigger 3.6.1 and earlier (fixed in 3.6.2, so this line could be deleted if you're using 3.6.2 or later)
+
+        ScrollTrigger.scrollerProxy(content, {
+          scrollTop(value) {
+            if (arguments.length) {
+              isProxyScrolling = true; // otherwise, if snapping was applied (or anything that attempted to SET the scroll proxy's scroll position), we'd set the scroll here which would then (on the next tick) update the content tween/ScrollTrigger which would try to smoothly animate to that new value, thus the scrub tween would impede the progress. So we use this flag to respond accordingly in the ScrollTrigger's onUpdate and effectively force the scrub to its end immediately.
+              setProp(-value);
+              setScroll(value);
+              return;
+            }
+            return -getProp("y");
+          },
+          scrollHeight: () => document.body.scrollHeight,
+          getBoundingClientRect() {
+            return {
+              top: 0,
+              left: 0,
+              width: window.innerWidth,
+              height: window.innerHeight,
+            };
+          },
+        });
+
+        return ScrollTrigger.create({
+          animation: gsap.fromTo(
+            content,
+            { y: 0 },
+            {
+              y: () => document.documentElement.clientHeight - height,
+              ease: "none",
+              onUpdate: ScrollTrigger.update,
+            }
+          ),
+          scroller: window,
+          invalidateOnRefresh: true,
+          start: 0,
+          end: refreshHeight,
+          refreshPriority: -999,
+          scrub: smoothness,
+          onUpdate: (self) => {
+            if (isProxyScrolling) {
+              killScrub(self);
+              isProxyScrolling = false;
+            }
+          },
+          onRefresh: killScrub, // when the screen resizes, we just want the animation to immediately go to the appropriate spot rather than animating there, so basically kill the scrub.
+        });
+      }
+
+      // for a horizontal version, see https://codepen.io/GreenSock/pen/rNmQPpa?editors=0010
+    </script>
+  </body>
+</html>
