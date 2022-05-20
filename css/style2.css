@@ -287,10 +287,21 @@ body {
   background-size: cover;
   background-position: center;
   position: relative;
+  transition: transform 0.5s;
 }
 #section2 .box:hover {
   cursor: pointer;
   transform: scale(1.15);
+}
+#section2 .box1:hover h3 {
+  transform: translate(-30%, -80%) rotateZ(-30deg);
+}
+#section2 .box2:hover h3 {
+  transform: translate(20%, -80%) rotateZ(25deg);
+}
+#section2 .box:hover .ball {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 #section2 .box1 {
   background-image: url(../img//box1.jpg);
@@ -306,6 +317,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
+  transition: transform 0.5s 0.1s;
 }
 #section2 .box1 h3 {
   left: -7vw;
@@ -323,7 +335,10 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
-  animation-name: rotateBall;
+  /* animation-name: rotateBall; */
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
 }
 #section2 .ball1 {
   background-image: url(../img/basketball1.png);
@@ -331,8 +346,6 @@ body {
   left: -27%;
   animation-delay: 0s;
   animation-duration: 6s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
 }
 #section2 .ball2 {
   background-image: url(../img/football1.png);
@@ -340,8 +353,6 @@ body {
   left: 20%;
   animation-delay: 0s;
   animation-duration: 4s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
 }
 
 #section2 .ball3 {
@@ -352,8 +363,6 @@ body {
   right: -30%;
   animation-delay: 0s;
   animation-duration: 5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
 }
 @keyframes rotateBall {
   0% {
