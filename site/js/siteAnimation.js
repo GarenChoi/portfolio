@@ -15,6 +15,17 @@ function scroll() {
   let viewWidth = wrapWidth - window.innerWidth;
   let viewHeight = wrapWidth - window.innerHeight;
   let goLeft = scrollTop * (viewWidth / viewHeight);
+  
+  gsap.to(".star1", {
+    duration: 5,
+    translateX: -goLeft * 0.17,
+    ease: "linear",
+  })
+  gsap.to(".pinkBall", {
+    duration: 3,
+    translateX: -goLeft * (-0.13),
+    ease: "linear",
+  })
 
   gsap.to("#wrap", {
     duration: 1,
@@ -47,12 +58,29 @@ infoInner.forEach((el,index) => {
         infoInner[index].querySelector(".aniBox").style.animationName = "moveBox1";
         setTimeout(()=>{
             infoInner[index].querySelector(".aniBox").style.opacity = "1";
+            if(index == 0){
+              infoInner[index].querySelector(".smile").style.opacity = "1";
+            }
+            if(index == 3){
+              infoInner[index].querySelector(".basketball").style.opacity = "1";
+            }
         },1000)
     } else {
         infoInner[index].querySelector(".aniBox").style.animationName = "moveBox2";
+        if(index == 0){
+          infoInner[index].querySelector(".smile").style.opacity = "0";
+        }
+        if(index == 3){
+          infoInner[index].querySelector(".basketball").style.opacity = "0";
+        }
         setTimeout(()=>{
             infoInner[index].querySelector(".aniBox").style.opacity = "0";
         },1000)
+    }
+    if(infoInner[3].getBoundingClientRect().left<0){
+      document.querySelector(".pinkBall").style.zIndex = "15";
+    } else {
+      document.querySelector(".pinkBall").style.zIndex = "1";
     }
 })
   requestAnimationFrame(scroll);
@@ -92,3 +120,48 @@ setTimeout(()=>{
         }, 500 * (index + 1));
     })
 }, 3000)
+
+gsap.set(".star1", {
+  translateX: "100vw",
+})
+gsap.set(".pinkBall", {
+  translateX: "-100vw",
+})
+gsap.to(".pinkBall", {
+  duration: 15,
+  rotateZ: "360deg",
+  repeat: -1,
+  ease: "linear",
+});
+gsap.to(".smile", {
+  duration: 10,
+  rotateZ: "-360deg",
+  ease: "linear",
+  repeat: -1,
+});
+gsap.to(".basketball", {
+  duration: 80,
+  rotateZ: "360deg",
+  ease: "linear",
+  repeat: -1,
+});
+
+document.querySelector(".next").addEventListener("click", () => {
+  gsap.to(document.querySelector("body"), {
+    duration: 2,
+    background: "#71F78F",
+  });
+  gsap.to("body", {
+    duration: 1.5,
+    opacity: 0,
+  });
+  gsap.to(".next", {
+    duration: 1.5,
+    opacity: 0,
+    scale: 6,
+  });
+
+  setTimeout(() => {
+    location.href = "../about/index.html";
+  }, 2000);
+});

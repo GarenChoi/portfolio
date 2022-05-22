@@ -8,13 +8,53 @@
   body {
     background: #e3fe78;
   }
+  
+  .star1 {
+    width: 80vw;
+    position: fixed;
+    top: -55vh;
+    right: -40vw;
+  }
+  .pinkBall {
+    width: 30vw;
+    position: fixed;
+    bottom: -20vh;
+    left: 0;
+    z-index: 1;
+  }
+  .smile {
+    width: 12vw;
+    position: absolute;
+    top: -6vw;
+    left: -6vw;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity .3s;
+  }
+  .basketball {
+    width: 12vw;
+    position: absolute;
+    bottom: 3vw;
+    left: -8vw;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity .3s;
+  }
 
+  .pinkBlop {
+    width: 20vw;
+    position: absolute;
+    right: 0;
+    top: 40%;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
   #wrap {
     position: fixed;
     top: 0;
     left: 0;
     display: flex;
-
+    z-index: 10;
   }
   #main {
     width: 100vw;
@@ -187,6 +227,7 @@
     position: relative;
     animation: float1 10s infinite;
     transition: float1, float2 linear;
+
   }
 
   .infoInner.black .infoBox {
