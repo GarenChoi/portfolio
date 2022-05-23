@@ -107,6 +107,24 @@ gsap.to("#section1 p", {
   delay: 3,
   animationName: "bounce",
 });
+
+gsap.set("#bgBox", {
+  display: "none",
+  scale: 0,
+});
+gsap.to("#bgBox", {
+  duration: 0,
+  delay: 2.5,
+  display: "block",
+});
+gsap.to("#bgBox", {
+  duration: 1,
+  delay: 2.6,
+  scale: 1,
+});
+setTimeout(() => {
+  update();
+}, 2400);
 document.querySelector(".goBtn").addEventListener("click", (e) => {
   document.querySelector(".goBtn").style.pointerEvents = "none";
   gsap.to("#section1 h1, #section1 h1 > span, #section1 p", {
@@ -281,4 +299,74 @@ document.querySelector(".goBtn").addEventListener("click", (e) => {
       });
     }, 3700);
   }, 2000);
+});
+
+document.querySelector(".box1").addEventListener("click", () => {
+  gsap.to(".octo", {
+    duration: 0.5,
+    opacity: 0,
+  });
+  gsap.set(".ball", {
+    animationName: "",
+  });
+  gsap.to(".ball1", {
+    duration: 0.7,
+    delay: 0.7,
+    scale: 3,
+    opacity: 0,
+    x: "-15vw",
+    y: "-40vh",
+    ease: "back.in(1.2)",
+  });
+  gsap.to(".ball2", {
+    duration: 0.7,
+    delay: 0.9,
+    scale: 3,
+    opacity: 0,
+    x: "-25vw",
+    y: "25vh",
+    ease: "back.in(1.2)",
+  });
+  gsap.to(".ball3", {
+    duration: 0.7,
+    delay: 0.5,
+    scale: 3,
+    opacity: 0,
+    x: "15vw",
+    y: "20vh",
+    ease: "back.in(1.2)",
+  });
+  gsap.to(".box2 h3", {
+    duration: 0.5,
+    delay: 1.1,
+    scale: 0.3,
+    x: "150vw",
+    y: "-50%",
+    ease: "back.in(2)",
+  });
+  gsap.to(".box2", {
+    duration: 0.1,
+    delay: 1.7,
+    scale: 0.001,
+    ease: "back.in(2)",
+  });
+  gsap.to(".box1", {
+    duration: 0.8,
+    delay: 2,
+    scale: 5,
+    opacity: 0,
+  });
+  gsap.to("#wrap", {
+    duration: 0.5,
+    delay: 2.4,
+    background: "#E3FE78",
+  });
+  gsap.to("#bgBox", {
+    duration: 0.5,
+    delay: 2.1,
+    opacity: 0,
+  });
+  setTimeout(() => {
+    location.href = "site/index.html";
+  }, 2800);
 });
