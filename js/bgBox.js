@@ -4,16 +4,16 @@ const cloud = "<img src='img/basketball2.png' alt='이미지'>";
 const cloud1 = "<img src='img/flower1.png' alt='이미지'>";
 
 const data = [star, cloud, cloud1];
-const max = 15;
+const max = 3;
 let particles = [];
 
 class Ball {
   constructor(shape) {
     this.shape = $(shape);
-    this.speed = 5 + Math.random() * 10;
+    this.speed = 5 + Math.random() * 4;
     this.vx = Math.random() * this.speed - Math.random() * this.speed;
     this.vy = Math.random() * this.speed - Math.random() * this.speed;
-    this.radius = 10 + Math.round(Math.random() * 200);
+    this.radius = 50 + Math.round(Math.random() * 200);
     this.w = window.innerWidth;
     this.h = window.innerHeight;
     this.x = (this.w - this.radius) / 2;
@@ -63,7 +63,8 @@ function randomInt(min, max) {
 }
 
 for (let i = 0; i < max; i++) {
-  particles.push(new Ball(data[randomInt(0, data.length - 1)]));
+  particles.push(new Ball(data[i]));
+  particles.push(new Ball(data[i]));
 }
 
 function update() {
