@@ -370,3 +370,73 @@ document.querySelector(".box1").addEventListener("click", () => {
     location.href = "site/index.html";
   }, 2800);
 });
+
+document.querySelector(".box2").addEventListener("click", () => {
+  gsap.to(".octo", {
+    duration: 0.5,
+    opacity: 0,
+  });
+  gsap.set(".ball", {
+    animationName: "",
+  });
+  gsap.to(".ball1", {
+    duration: 0.7,
+    delay: 0.7,
+    scale: 3,
+    opacity: 0,
+    x: "-15vw",
+    y: "-40vh",
+    ease: "back.in(1.2)",
+  });
+  gsap.to(".ball2", {
+    duration: 0.7,
+    delay: 0.9,
+    scale: 3,
+    opacity: 0,
+    x: "-25vw",
+    y: "25vh",
+    ease: "back.in(1.2)",
+  });
+  gsap.to(".ball3", {
+    duration: 0.7,
+    delay: 0.5,
+    scale: 3,
+    opacity: 0,
+    x: "15vw",
+    y: "20vh",
+    ease: "back.in(1.2)",
+  });
+  gsap.to(".box1 h3", {
+    duration: 0.5,
+    delay: 1.1,
+    scale: 0.3,
+    x: "-150vw",
+    y: "-50%",
+    ease: "back.in(2)",
+  });
+  gsap.to(".box1", {
+    duration: 0.1,
+    delay: 1.7,
+    scale: 0.001,
+    ease: "back.in(2)",
+  });
+  gsap.to(".box2", {
+    duration: 0.8,
+    delay: 2,
+    scale: 5,
+    opacity: 0,
+  });
+  gsap.to("#wrap", {
+    duration: 0.5,
+    delay: 2.4,
+    background: "#aee3ff",
+  });
+  gsap.to("#bgBox", {
+    duration: 0.5,
+    delay: 2.1,
+    opacity: 0,
+  });
+  setTimeout(() => {
+    location.href = "script/index.html";
+  }, 2800);
+});

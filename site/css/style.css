@@ -5,6 +5,9 @@
   font-family: "GmarketSans";
   font-weight: bold;
 }
+html {
+  user-select: none;
+}
 body {
   background: #e3fe78;
 }
@@ -40,7 +43,18 @@ body {
   opacity: 0;
   transition: opacity 0.3s;
 }
-
+.eyes {
+  position: absolute;
+  top: -245vw;
+  left: 27%;
+  width: 5vw;
+}
+.flag {
+  width: 8vw;
+  position: absolute;
+  left: -400vw;
+  top: 75vh;
+}
 .pinkBlop {
   width: 20vw;
   position: absolute;
@@ -145,6 +159,7 @@ body {
   height: 100vh;
   display: flex;
   align-items: center;
+  position: relative;
 }
 section .infoInner {
   position: relative;
@@ -346,7 +361,8 @@ section .infoInner {
   left: -8vw;
 } */
 
-.infoInner .viewBox > span {
+.infoInner .viewBox > a {
+  text-decoration: none;
   color: #fff;
   padding: 0.6vw 1.7vw 0.5vw;
   background-color: #000;
@@ -359,9 +375,13 @@ section .infoInner {
   transition: color, background-color 0.5s;
 }
 
-.infoInner .infoBox:hover .viewBox > span {
+.infoInner .infoBox:hover .viewBox > a {
   color: #000;
   background-color: rgba(255, 255, 255, 0);
+}
+.infoInner .infoBox .viewBox > a:hover {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 #section2 {

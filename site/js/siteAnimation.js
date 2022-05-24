@@ -13,6 +13,9 @@ function scroll() {
   let viewWidth = wrapWidth - window.innerWidth;
   let viewHeight = wrapWidth - window.innerHeight;
   let goLeft = scrollTop * (viewWidth / viewHeight);
+  // console.log(viewWidth);
+  // console.log(viewHeight);
+  // console.log(scrollTop);
 
   gsap.to(".star1", {
     duration: 5,
@@ -22,6 +25,18 @@ function scroll() {
   gsap.to(".pinkBall", {
     duration: 3,
     translateX: -goLeft * -0.13,
+    ease: "linear",
+  });
+  gsap.to(".eyes", {
+    duration: 1,
+    translateX: goLeft * 0.1,
+    translateY: (viewHeight - scrollTop) * 0.7,
+    ease: "linear",
+  });
+  gsap.to(".flag", {
+    duration: 1,
+    translateX: goLeft * 0.65,
+    translateY: -(viewHeight - scrollTop) * 0.15,
     ease: "linear",
   });
 
@@ -142,6 +157,12 @@ gsap.to(".smile", {
 });
 gsap.to(".basketball", {
   duration: 80,
+  rotateZ: "360deg",
+  ease: "linear",
+  repeat: -1,
+});
+gsap.to(".eyes", {
+  duration: 5,
   rotateZ: "360deg",
   ease: "linear",
   repeat: -1,

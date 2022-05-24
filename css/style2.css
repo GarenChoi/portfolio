@@ -322,11 +322,11 @@ body {
   animation-fill-mode: forwards;
 }
 #section2 .box1 {
-  background-image: url(../img//box1.jpg);
+  background-image: url(../img/box1.jpg);
   margin-right: 2vw;
 }
 #section2 .box2 {
-  background-image: url(../img//box2.jpg);
+  background-image: url(../img/box2.jpg);
   margin-left: 2vw;
 }
 #section2 .box h3 {
