@@ -1,5 +1,7 @@
 var s = skrollr.init();
 
+const infoInner = document.querySelectorAll(".infoInner");
+
 function scroll() {
   let scrollTop =
     window.pageYOffset || document.documentElement.scrollTop || window.scrollY;
@@ -28,7 +30,7 @@ function scroll() {
   });
   gsap.to(".infoInner3 .bgText", {
     duration: 3,
-    translateX: -goLeft * 0.8 + viewWidth / 5,
+    translateX: -goLeft * 0.8 + viewWidth / 4.5,
     ease: "linear",
   });
   gsap.to(".infoInner4 .bgText", {
@@ -45,6 +47,15 @@ function scroll() {
     duration: 3,
     translateX: -goLeft * 0.8 + viewWidth / 1.5,
     ease: "linear",
+  });
+
+  infoInner.forEach((el, index) => {
+    if (
+      infoInner[index].getBoundingClientRect().left <
+      (window.innerWidth * 2) / 3
+    ) {
+      infoInner[index].querySelector("img").style.opacity = "0";
+    }
   });
 
   requestAnimationFrame(scroll);
@@ -82,3 +93,23 @@ setTimeout(() => {
     }, 500 * (index + 1));
   });
 }, 3000);
+
+document.querySelector(".next").addEventListener("click", () => {
+  gsap.to(document.querySelector("body"), {
+    duration: 2,
+    background: "#71F78F",
+  });
+  gsap.to("body", {
+    duration: 1.5,
+    opacity: 0,
+  });
+  gsap.to(".next", {
+    duration: 1.5,
+    opacity: 0,
+    scale: 6,
+  });
+
+  setTimeout(() => {
+    location.href = "../about/index.html";
+  }, 2000);
+});
