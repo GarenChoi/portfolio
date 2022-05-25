@@ -18,56 +18,47 @@ function scroll() {
     translateX: -goLeft,
     ease: "linear",
   });
-  // console.log(infoInner[0].getBoundingClientRect().left / window.innerWidth);
-
-  infoInner.forEach((el, index) => {
-    if (index % 2 == 1) {
-      gsap.to(infoInner[index], {
-        duration: 1,
-        y: (scrollTop - infoInner[index].offsetLeft) * 0.15,
-        ease: "linear",
-      });
-    } else {
-      gsap.to(infoInner[index], {
-        duration: 1,
-        y: -(scrollTop - infoInner[index].offsetLeft) * 0.15,
-        ease: "linear",
-      });
-    }
-
-    let yyy =
-      infoInner[index].getBoundingClientRect().left / window.innerWidth - 0.2;
-    if (yyy < 0) {
-      yyy = yyy * -1;
-    }
-    let yyyy = Math.max(
-      -15,
-      Math.min(
-        15,
-        10 -
-          30 *
-            (infoInner[index].getBoundingClientRect().left / window.innerWidth)
-      )
-    );
-    gsap.to(infoInner[index].querySelector(".img"), {
-      duration: 0.5,
-      backgroundColor: `rgba(0,0,0,${yyy})`,
-      y: `${-yyyy}%`,
-    });
+  gsap.to(".infoInner1 .bgText", {
+    duration: 3,
+    translateX: -goLeft * 0.8,
+    ease: "linear",
+  });
+  gsap.to(".infoInner2 .bgText", {
+    duration: 3,
+    translateX: -goLeft * 0.8 + viewWidth / 8,
+    ease: "linear",
+  });
+  gsap.to(".infoInner3 .bgText", {
+    duration: 3,
+    translateX: -goLeft * 0.8 + viewWidth / 4.5,
+    ease: "linear",
+  });
+  gsap.to(".infoInner4 .bgText", {
+    duration: 3,
+    translateX: -goLeft * 0.8 + viewWidth / 2.5,
+    ease: "linear",
+  });
+  gsap.to(".infoInner5 .bgText", {
+    duration: 3,
+    translateX: -goLeft * 0.8 + viewWidth / 2,
+    ease: "linear",
+  });
+  gsap.to(".infoInner6 .bgText", {
+    duration: 3,
+    translateX: -goLeft * 0.8 + viewWidth / 1.5,
+    ease: "linear",
   });
 
-  gsap.to(".site", {
-    duration: 1,
-    x: document.querySelector("#section2").getBoundingClientRect().left,
-    y: -document.querySelector("#section2").getBoundingClientRect().left,
-    ease: "ease-out",
-  });
-  gsap.to(".about", {
-    duration: 1,
-    x: document.querySelector("#section2").getBoundingClientRect().left,
-    y: document.querySelector("#section2").getBoundingClientRect().left,
-    ease: "ease-out",
-  });
+  // infoInner.forEach((el, index) => {
+  //   if (
+  //     infoInner[index].getBoundingClientRect().left <
+  //     (window.innerWidth * 2) / 3
+  //   ) {
+  //     gsap.to(infoInner[index], {
+  //       opacity: 0,
+  //     });
+  //   }
+  // });
 
   requestAnimationFrame(scroll);
 }
@@ -106,27 +97,7 @@ setTimeout(() => {
   });
 }, 3000);
 
-document.querySelector(".site").addEventListener("click", () => {
-  gsap.to(document.querySelector("body"), {
-    duration: 2,
-    background: "#e3fe78",
-  });
-  gsap.to("body", {
-    duration: 1.5,
-    opacity: 0,
-  });
-  gsap.to(".site", {
-    duration: 1.5,
-    opacity: 0,
-    scale: 6,
-  });
-
-  setTimeout(() => {
-    location.href = "../site/index.html";
-  }, 2000);
-});
-
-document.querySelector(".about").addEventListener("click", () => {
+document.querySelector(".next").addEventListener("click", () => {
   gsap.to(document.querySelector("body"), {
     duration: 2,
     background: "#71F78F",
@@ -135,7 +106,7 @@ document.querySelector(".about").addEventListener("click", () => {
     duration: 1.5,
     opacity: 0,
   });
-  gsap.to(".about", {
+  gsap.to(".next", {
     duration: 1.5,
     opacity: 0,
     scale: 6,

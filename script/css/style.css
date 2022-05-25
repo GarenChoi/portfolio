@@ -33,6 +33,7 @@ body {
   line-height: 1;
   position: relative;
   z-index: 2;
+  opacity: 0;
   user-select: none;
 }
 #main h1 div span {
@@ -110,15 +111,13 @@ body {
 }
 section .infoInner {
   position: relative;
-  margin: 30vh 50vw 0;
   z-index: 3;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
+  margin: 0 5vw;
 }
 section .infoInner.startTop {
-  position: relative;
-  margin: 0 50vw 30vh;
-  flex-direction: column-reverse;
+  flex-direction: column;
 }
 .infoInner .bgText {
   color: #5ec7ff;
@@ -152,10 +151,10 @@ section .infoInner.startTop {
   display: flex;
   justify-content: center;
   color: #fff;
-  margin-bottom: 1vw;
+  margin-top: 1vw;
 }
 .infoInner.startTop .viewBox {
-  margin: 1vw 0 0 0;
+  margin: 0 0 1vw 0;
 }
 .infoInner .viewBox > div {
   background-color: #000;
@@ -181,24 +180,68 @@ section .infoInner.startTop {
   border-radius: 6vw;
   margin-left: 0.3vw;
 }
-.infoInner > img {
+.infoInner .imgBox {
+  position: relative;
   width: 60vw;
+  height: 26vw;
+  border-radius: 40vw;
+  outline: 0.5vw solid #000;
+  /* border: 0.5vw solid #000;
+  box-sizing: content-box; */
+  overflow: hidden;
+  margin-top: 30vw;
 }
+.infoInner.startTop .imgBox {
+  margin-top: auto;
+  margin-bottom: 30vw;
+}
+.imgBox > .img {
+  width: 80vw;
+  height: 45vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url(../../img/mouseEffect.jpg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  /* background-color: rgba(0, 0, 0, 0.753); */
+  background-blend-mode: darken;
+}
+/* .imgBox > img {
+  width: 60vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -43%);
+  width: 60vw;
+} */
 
 #section2 {
-  width: 60vw;
+  width: 100vw;
   height: 100vh;
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.next {
+.site {
   font-size: 3.5vw;
-  padding: 0.5em 0.8em 0.3em;
+  padding: 0.45em 0.8em 0.3em;
+  border: 3px solid #000;
+  border-radius: 5vw;
+  background-color: #d5ff2d;
+  margin-bottom: 5vh;
+  cursor: pointer;
+}
+.about {
+  font-size: 3.5vw;
+  padding: 0.45em 0.8em 0.3em;
   border: 3px solid #000;
   border-radius: 5vw;
   background-color: #00ce7c;
-  transform: rotateZ(-90deg);
+  margin-top: 5vh;
   cursor: pointer;
 }

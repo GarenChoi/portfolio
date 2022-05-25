@@ -85,6 +85,7 @@ body {
   position: relative;
   z-index: 2;
   user-select: none;
+  opacity: 0;
 }
 #main h1 div span {
   opacity: 0;
@@ -164,9 +165,7 @@ body {
 section .infoInner {
   position: relative;
   z-index: 5;
-  transform: translateY(-7%);
-  transition: transform 0.3s linear;
-  margin: 0 50vw;
+  margin: 0 7vw;
 }
 /* .infoInner .infoInner.black {
   transform: translateY(7%);
@@ -192,7 +191,6 @@ section .infoInner {
   animation-timing-function: linear;
   animation-fill-mode: forwards;
   animation-timing-function: linear;
-  opacity: 0;
   backdrop-filter: blur(30px);
 }
 @keyframes moveBox1 {
@@ -243,8 +241,8 @@ section .infoInner {
   height: 33vw;
   border: 0.3vw solid #000;
   position: relative;
-  animation: float1 10s infinite;
-  transition: float1, float2 linear;
+  /* animation: float1 10s infinite;
+  transition: float1, float2 linear; */
 }
 
 .infoInner .infoBox:hover {
@@ -385,19 +383,29 @@ section .infoInner {
 }
 
 #section2 {
-  width: 60vw;
+  width: 100vw;
   height: 100vh;
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.next {
+.script {
   font-size: 3.5vw;
-  padding: 0.5em 0.8em 0.3em;
+  padding: 0.45em 0.8em 0.3em;
+  border: 3px solid #000;
+  border-radius: 5vw;
+  background-color: #5ec7ff;
+  margin-bottom: 5vh;
+  cursor: pointer;
+}
+.about {
+  font-size: 3.5vw;
+  padding: 0.45em 0.8em 0.3em;
   border: 3px solid #000;
   border-radius: 5vw;
   background-color: #00ce7c;
-  transform: rotateZ(-90deg);
+  margin-top: 5vh;
   cursor: pointer;
 }

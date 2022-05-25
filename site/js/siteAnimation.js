@@ -45,61 +45,167 @@ function scroll() {
     translateX: -goLeft,
     ease: "linear",
   });
-  gsap.to(".infoInner1 .bgText", {
-    duration: 3,
-    translateX: -goLeft * 0.8,
-    ease: "linear",
-  });
-  gsap.to(".infoInner2 .bgText", {
-    duration: 3,
-    translateX: -goLeft * 0.8 + viewWidth / 6,
-    ease: "linear",
-  });
-  gsap.to(".infoInner3 .bgText", {
-    duration: 3,
-    translateX: -goLeft * 0.8 + viewWidth / 2.7,
-    ease: "linear",
-  });
-  gsap.to(".infoInner4 .bgText", {
-    duration: 3,
-    translateX: -goLeft * 0.8 + viewWidth / 1.85,
-    ease: "linear",
-  });
+
+  // console.log(document.querySelector("#main h1").getBoundingClientRect().left);
+  if (
+    document.querySelector("#main h1").getBoundingClientRect().left <
+    window.innerWidth / 10
+  ) {
+    gsap.to("#main h1 .title1", {
+      duration: 1,
+      y:
+        (document.querySelector("#main h1").getBoundingClientRect().left -
+          window.innerHeight / 2) *
+        0.2,
+      ease: "ease-out",
+    });
+    gsap.to("#main h1 .title2", {
+      duration: 1,
+      x:
+        (document.querySelector("#main h1").getBoundingClientRect().left -
+          window.innerHeight / 2) *
+        0.2,
+      ease: "ease-out",
+    });
+    gsap.to("#main h1 .title3", {
+      duration: 1,
+      y:
+        -(
+          document.querySelector("#main h1").getBoundingClientRect().left -
+          window.innerHeight / 2
+        ) * 0.2,
+      ease: "ease-out",
+    });
+  } else {
+    gsap.to("#main h1 > div", {
+      duration: 1,
+      x: 0,
+      y: 0,
+      ease: "linear",
+    });
+  }
 
   infoInner.forEach((el, index) => {
-    if (
-      infoInner[index].getBoundingClientRect().left <
-      (window.innerWidth * 2) / 3
-    ) {
-      infoInner[index].querySelector(".aniBox").style.animationName =
-        "moveBox1";
-      setTimeout(() => {
-        infoInner[index].querySelector(".aniBox").style.opacity = "1";
-        if (index == 0) {
-          infoInner[index].querySelector(".smile").style.opacity = "1";
-        }
-        if (index == 3) {
-          infoInner[index].querySelector(".basketball").style.opacity = "1";
-        }
-      }, 1000);
-    } else {
-      infoInner[index].querySelector(".aniBox").style.animationName =
-        "moveBox2";
+    if (infoInner[index].getBoundingClientRect().left < window.innerWidth / 4) {
+      let xxxx =
+        infoInner[index].getBoundingClientRect().left - window.innerHeight / 2;
       if (index == 0) {
-        infoInner[index].querySelector(".smile").style.opacity = "0";
+        gsap.to(infoInner[0], {
+          duration: 1,
+          y: xxxx * 0.7,
+          rotateZ: -xxxx * 0.05,
+          ease: "ease-out",
+        });
+      }
+      if (index == 1) {
+        gsap.to(infoInner[1], {
+          duration: 1,
+          y: xxxx * 0.05,
+          rotateZ: xxxx * 0.02,
+          ease: "ease-out",
+        });
+      }
+      if (index == 2) {
+        gsap.to(infoInner[2], {
+          duration: 1,
+          y: -xxxx * 0.03,
+          rotateZ: -xxxx * 0.015,
+          ease: "ease-out",
+        });
       }
       if (index == 3) {
-        infoInner[index].querySelector(".basketball").style.opacity = "0";
+        gsap.to(infoInner[3], {
+          duration: 1,
+          y: -xxxx * 0.4,
+          rotateZ: 0,
+          ease: "ease-out",
+        });
       }
-      setTimeout(() => {
-        infoInner[index].querySelector(".aniBox").style.opacity = "0";
-      }, 1000);
-    }
-    if (infoInner[3].getBoundingClientRect().left < 0) {
-      document.querySelector(".pinkBall").style.zIndex = "15";
+      if (index == 4) {
+        gsap.to(infoInner[4], {
+          duration: 1,
+          y: xxxx * 0.4,
+          rotateZ: 0,
+          ease: "ease-out",
+        });
+      }
+      if (index == 5) {
+        gsap.to(infoInner[5], {
+          duration: 1,
+          y: xxxx * 0.3,
+          rotateZ: xxxx * 0.01,
+          ease: "ease-out",
+        });
+      }
+      if (index == 6) {
+        gsap.to(infoInner[6], {
+          duration: 1,
+          y: -xxxx * 0.25,
+          rotateZ: xxxx * 0.01,
+          ease: "ease-out",
+        });
+      }
+      if (index == 7) {
+        gsap.to(infoInner[7], {
+          duration: 1,
+          y: xxxx * 0.4,
+          rotateZ: xxxx * 0.01,
+          ease: "ease-out",
+        });
+      }
+      if (index == 8) {
+        gsap.to(infoInner[8], {
+          duration: 1,
+          y: -xxxx * 0.3,
+          rotateZ: xxxx * 0.01,
+          ease: "ease-out",
+        });
+      }
+      if (index == 9) {
+        gsap.to(infoInner[9], {
+          duration: 1,
+          y: -xxxx * 0.4,
+          rotateZ: 0,
+          ease: "ease-out",
+        });
+      }
+      if (index == 10) {
+        gsap.to(infoInner[10], {
+          duration: 1,
+          y: xxxx * 0.4,
+          rotateZ: 0,
+          ease: "ease-out",
+        });
+      }
+      if (index == 11) {
+        gsap.to(infoInner[11], {
+          duration: 1,
+          y: xxxx * 0.25,
+          rotateZ: -xxxx * 0.01,
+          ease: "ease-out",
+        });
+      }
     } else {
-      document.querySelector(".pinkBall").style.zIndex = "1";
+      gsap.to(infoInner[index], {
+        duration: 1,
+        y: 0,
+        rotateZ: 0,
+        ease: "ease-out",
+      });
     }
+  });
+
+  gsap.to(".script", {
+    duration: 1,
+    x: document.querySelector("#section2").getBoundingClientRect().left,
+    y: -document.querySelector("#section2").getBoundingClientRect().left,
+    ease: "ease-out",
+  });
+  gsap.to(".about", {
+    duration: 1,
+    x: document.querySelector("#section2").getBoundingClientRect().left,
+    y: document.querySelector("#section2").getBoundingClientRect().left,
+    ease: "ease-out",
   });
   requestAnimationFrame(scroll);
 }
@@ -116,6 +222,7 @@ text.forEach((el) => {
   el.setAttribute("aria-label", splitText);
 });
 setTimeout(() => {
+  document.querySelector("#main h1").style.opacity = "1";
   document.querySelectorAll(".title1 span").forEach((span, index) => {
     setTimeout(() => {
       span.classList.add("show");
@@ -168,7 +275,27 @@ gsap.to(".eyes", {
   repeat: -1,
 });
 
-document.querySelector(".next").addEventListener("click", () => {
+document.querySelector(".script").addEventListener("click", () => {
+  gsap.to(document.querySelector("body"), {
+    duration: 2,
+    background: "#aee3ff",
+  });
+  gsap.to("body", {
+    duration: 1.5,
+    opacity: 0,
+  });
+  gsap.to(".script", {
+    duration: 1.5,
+    opacity: 0,
+    scale: 6,
+  });
+
+  setTimeout(() => {
+    location.href = "../script/index.html";
+  }, 2000);
+});
+
+document.querySelector(".about").addEventListener("click", () => {
   gsap.to(document.querySelector("body"), {
     duration: 2,
     background: "#71F78F",
@@ -177,7 +304,7 @@ document.querySelector(".next").addEventListener("click", () => {
     duration: 1.5,
     opacity: 0,
   });
-  gsap.to(".next", {
+  gsap.to(".about", {
     duration: 1.5,
     opacity: 0,
     scale: 6,

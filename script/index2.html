@@ -9,227 +9,78 @@
       href="https://webfontworld.github.io/gmarket/GmarketSans.css"
       rel="stylesheet"
     />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "GmarketSans";
-        font-weight: bold;
-      }
-
-      body {
-        background: #aee3ff;
-      }
-
-      .scrollTop {
-        position: fixed;
-        left: 20px;
-        top: 20px;
-        background: rgba(0, 0, 0, 0.4);
-        color: #fff;
-        width: 60px;
-        height: 30px;
-        text-align: center;
-        line-height: 30px;
-        z-index: 10000;
-      }
-
-      #wrap {
-        position: fixed;
-        top: 0;
-        left: 0;
-        display: flex;
-      }
-
-      #main {
-        width: 100vw;
-        height: 100vh;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      #main h1 {
-        font-size: 8vw;
-        line-height: 1;
-        position: relative;
-        z-index: 2;
-      }
-
-      #main h1 span {
-        display: block;
-      }
-
-      #wrap > section {
-        width: 100vw;
-        height: 100vh;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      #wrap > section:last-child {
-        width: 80vw;
-      }
-
-      section .bgText {
-        color: #5ec7ff;
-        font-size: 19vw;
-        width: 80%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        overflow: hidden;
-      }
-      section .bgText p {
-        position: absolute;
-        top: 35%;
-        transform: translateY(-50%);
-        z-index: 1;
-        opacity: 0;
-      }
-      section.startTop .bgText p {
-        top: auto;
-        bottom: 28%;
-        transform: translateY(50%);
-      }
-      .infoInner {
-        position: relative;
-        z-index: 3;
-        margin-top: 30vh;
-        display: flex;
-        flex-direction: column;
-      }
-      .startTop .infoInner {
-        margin: 0 0 30vh 0;
-        flex-direction: column-reverse;
-      }
-      .infoInner .viewBox {
-        display: flex;
-        justify-content: center;
-        color: #fff;
-        margin-bottom: 1vw;
-      }
-      .startTop .infoInner .viewBox {
-        margin: 1vw 0 0 0;
-      }
-      .infoInner .viewBox > div {
-        background-color: #000;
-        font-weight: 100;
-        font-size: 1.5vw;
-        padding-top: 0.2em;
-      }
-      .viewBox .arrow {
-        width: 3vw;
-        height: 3vw;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        margin-right: 0.3vw;
-      }
-      .viewBox .pageInfo {
-        width: 18vw;
-        height: 3vw;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 6vw;
-        margin-left: 0.3vw;
-      }
-      .infoInner > img {
-        width: 60vw;
-      }
-
-      .next {
-        font-size: 3.5vw;
-        padding: 0.5em 0.8em 0.3em;
-        border: 3px solid #000;
-        border-radius: 5vw;
-        background-color: #00ce7c;
-        transform: rotateZ(-90deg);
-        cursor: pointer;
-      }
-    </style>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div class="scrollTop"></div>
     <div id="wrap">
       <main id="main">
         <h1>
-          <span>프론트를 위해</span><span>달리는 개발자 스크립트</span
-          ><span>모음</span>
+          <div class="title1">프론트를 위해</div>
+          <div class="title2">달리는 개발자 스크립트</div>
+          <div class="title3">모음</div>
         </h1>
       </main>
-      <section class="section1">
-        <div class="bgText">
-          <p>MOUSEEFFECT</p>
-        </div>
-        <div class="infoInner">
+
+      <section id="section1">
+        <div class="infoInner infoInner1">
+          <div class="bgText">
+            <p>MOUSEEFFECT</p>
+          </div>
           <div class="viewBox">
             <div class="arrow">i</div>
             <div class="pageInfo">MOUSE EFFECT</div>
           </div>
           <img src="../img/mouseEffect.png" alt="이미지" />
         </div>
-      </section>
-      <section class="section2 startTop">
-        <div class="bgText">
-          <p>SLIDEEFFECT</p>
-        </div>
-        <div class="infoInner">
+
+        <div class="infoInner infoInner2 startTop">
+          <div class="bgText">
+            <p>SLIDEEFFECT</p>
+          </div>
           <div class="viewBox">
             <div class="arrow">i</div>
             <div class="pageInfo">SLIDE EFFECT</div>
           </div>
           <img src="../img/slideEffect.png" alt="이미지" />
         </div>
-      </section>
-      <section class="section3">
-        <div class="bgText">
-          <p>PARALLAXEFFECT</p>
-        </div>
-        <div class="infoInner">
+
+        <div class="infoInner infoInner3">
+          <div class="bgText">
+            <p>PARALLAXEFFECT</p>
+          </div>
           <div class="viewBox">
             <div class="arrow">i</div>
             <div class="pageInfo">PARALLAX EFFECT</div>
           </div>
           <img src="../img/parallaxEffect.png" alt="이미지" />
         </div>
-      </section>
-      <section class="section4 startTop">
-        <div class="bgText">
-          <p>QUIZEFFECT</p>
-        </div>
-        <div class="infoInner">
+
+        <div class="infoInner infoInner4 startTop">
+          <div class="bgText">
+            <p>QUIZEFFECT</p>
+          </div>
           <div class="viewBox">
             <div class="arrow">i</div>
             <div class="pageInfo">QUIZ EFFECT</div>
           </div>
           <img src="../img/quizEffect.png" alt="이미지" />
         </div>
-      </section>
-      <section class="section5">
-        <div class="bgText">
-          <p>SEARCHEFFECT</p>
-        </div>
-        <div class="infoInner">
+
+        <div class="infoInner infoInner5">
+          <div class="bgText">
+            <p>SEARCHEFFECT</p>
+          </div>
           <div class="viewBox">
             <div class="arrow">i</div>
             <div class="pageInfo">SEARCH EFFECT</div>
           </div>
           <img src="../img/searchEffect.png" alt="이미지" />
         </div>
-      </section>
-      <section class="section6 startTop">
-        <div class="bgText">
-          <p>GAMESITE</p>
-        </div>
-        <div class="infoInner">
+
+        <div class="infoInner infoInner6 startTop">
+          <div class="bgText">
+            <p>GAMESITE</p>
+          </div>
           <div class="viewBox">
             <div class="arrow">i</div>
             <div class="pageInfo">GAME SITE</div>
@@ -237,84 +88,16 @@
           <img src="../img/gameSite.png" alt="이미지" />
         </div>
       </section>
-      <section class="section7">
+
+      <section id="section2">
         <span class="next">NEXT</span>
       </section>
     </div>
+
     <script src="../js/gsap.min.js"></script>
     <script src="../js/jquery-2.2.4.min.js"></script>
     <script src="../js/skrollr.min.js"></script>
-    <script>
-      gsap.set("#main", { scale: 2, opacity: 0 });
-      gsap.to("#main", {
-        duration: 1.5,
-        scale: 1,
-        opacity: 1,
-        ease: "ease-in-out",
-      });
-      var s = skrollr.init();
-
-      function scroll() {
-        let scrollTop =
-          window.pageYOffset ||
-          document.documentElement.scrollTop ||
-          window.scrollY;
-        document.querySelector(".scrollTop").innerText = Math.round(scrollTop);
-
-        let wrapWidth = document.getElementById("wrap").offsetWidth;
-        document.body.style.height = `${wrapWidth}px`;
-
-        let viewWidth = wrapWidth - window.innerWidth;
-        let viewHeight = wrapWidth - window.innerHeight;
-        let goLeft = scrollTop * (viewWidth / viewHeight);
-
-        gsap.to("#wrap", {
-          duration: 1,
-          translateX: -goLeft,
-          ease: "linear",
-        });
-
-        requestAnimationFrame(scroll);
-      }
-      scroll();
-      window.addEventListener("resize", scroll);
-
-      gsap.fromTo(
-        ".bgText p",
-        { right: "-160vw" },
-        {
-          duration: 8,
-          right: "100vw",
-          ease: "linear",
-          repeat: -1,
-        }
-      );
-      gsap.to(".bgText p", {
-        duration: 0,
-        opacity: 0.6,
-        repeat: -1,
-        repeatdelay: 5,
-      });
-
-      document.querySelector(".next").addEventListener("click", () => {
-        gsap.to(document.querySelector("body"), {
-          duration: 2,
-          background: "#71F78F",
-        });
-        gsap.to("#wrap", {
-          duration: 1.5,
-          opacity: 0,
-        });
-        gsap.to(".section7", {
-          duration: 1.5,
-          opacity: 0,
-          scale: 2,
-        });
-
-        setTimeout(() => {
-          location.href = "../about/index.html";
-        }, 2000);
-      });
-    </script>
+    <script src="js/scriptAnimation2.js"></script>
+    <script></script>
   </body>
 </html>
