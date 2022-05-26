@@ -5,48 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>portfolio_about</title>
+
     <link
       href="https://webfontworld.github.io/gmarket/GmarketSans.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/style.css" />
     <style>
-      body {
-        background-color: #71f78f;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "GmarketSans";
+        font-weight: bold;
       }
-      #wrap {
-        width: 100vw;
-        height: 5000px;
 
-        background-color: #71f78e00;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1;
-      }
-      #bgLine {
-        width: 100%;
-        height: 100vh;
-        background-image: url("../img/bgLine.svg");
+      body {
+        background: #71f78f;
+        background-image: url(../img/mainBG2.png);
         background-position: center center;
         background-repeat: no-repeat;
         background-attachment: fixed;
-        background-size: cover;
-        position: fixed;
-        top: 0;
-        left: 0;
+        background-size: 101vw 101vh;
+        overflow-x: hidden;
+        overflow-y: hidden;
       }
-      #bgBox {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 50vw;
-        height: 50vh;
-        z-index: 10;
-      }
-      #bgBox > img {
-        position: absolute;
+      #wrap {
+        height: 5000px;
       }
       #section1 {
         width: 100%;
@@ -132,23 +116,97 @@
           transform: rotateZ(0);
         }
       }
+      #section2 {
+        width: 100vw;
+        height: 100vh;
+      }
     </style>
   </head>
   <body>
-    <div id="bgLine">
-      <div id="bgBox"></div>
-    </div>
     <div id="wrap">
       <section id="section1">
         <h1>AB<span class="o1"></span>UT ME</h1>
         <p>프론트를 위해 달리는 개발자를 소개합니다.</p>
       </section>
+      <section id="section2">
+        <p>1234</p>
+      </section>
     </div>
 
-    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
     <script src="../js/jquery-2.2.4.min.js"></script>
-    <script src="js/aboutAnimation.js"></script>
-    <script src="js/bgBox.js"></script>
-    <script></script>
+    <script src="../js/skrollr.min.js"></script>
+    <script>
+      gsap.set("#wrap", {
+        height: 5000,
+      });
+      gsap.set("#section1", {
+        position: "fixed",
+        top: 0,
+        left: 0,
+      });
+      let xxx = 0;
+      $("body").on("mousewheel", (e) => {
+        var wheel = e.originalEvent.wheelDelta;
+        if (wheel > 0) {
+          gsap.fromTo(
+            "#wrap",
+            {
+              top: 20,
+            },
+            {
+              duration: 1,
+              top: -20,
+            }
+          );
+        }
+        if (wheel < 0) {
+          gsap.fromTo(
+            "#wrap",
+            {
+              top: -20,
+            },
+            {
+              duration: 1,
+              top: 20,
+            }
+          );
+        }
+      });
+      gsap.fromTo(
+        "body",
+        {
+          backgroundSize: "200vw 200vh",
+        },
+        {
+          duration: 1.5,
+          backgroundSize: "101vw 101vh",
+          ease: "ease-in-out",
+        }
+      );
+      gsap.fromTo(
+        "body",
+        {
+          scale: 2,
+          opacity: 0,
+        },
+        {
+          duration: 1.5,
+          delay: 1,
+          scale: 1,
+          opacity: 1,
+          ease: "ease-in-out",
+        }
+      );
+      setTimeout(() => {
+        document.body.style.overflowY = "scroll";
+      }, 2500);
+
+      gsap.to("#section1 h1", {
+        duration: 10,
+        translateX: 200,
+        ease: "linear",
+      });
+    </script>
   </body>
 </html>
