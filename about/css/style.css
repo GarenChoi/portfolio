@@ -10,8 +10,6 @@ body {
 }
 #wrap {
   width: 100vw;
-  height: 5000px;
-
   background-color: #71f78e00;
   position: fixed;
   top: 0;
@@ -34,10 +32,11 @@ body {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0);
   width: 50vw;
   height: 50vh;
   z-index: 10;
+  opacity: 0;
 }
 #bgBox > img {
   position: absolute;
@@ -68,7 +67,6 @@ body {
   display: flex;
   font-weight: bold;
   user-select: none;
-  animation-name: bounce;
   animation-delay: 1s;
   animation-duration: 5s;
   animation-iteration-count: infinite;
@@ -81,11 +79,10 @@ body {
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: contain;
-  animation-name: shake;
   animation-iteration-count: infinite;
   animation-duration: 4s;
-}
-#section1 h1 .o1 {
+  position: absolute;
+  left: 15vw;
   background-image: url("../../img/basketball1.png");
   animation-delay: 1.2s;
 }
@@ -93,7 +90,6 @@ body {
   font-size: 2.5vw;
   font-weight: bold;
   user-select: none;
-  animation-name: bounce;
   animation-delay: 1s;
   animation-duration: 5s;
   animation-iteration-count: infinite;
@@ -137,4 +133,48 @@ body {
   100% {
     transform: rotateZ(0);
   }
+}
+#section2 {
+  height: 500vh;
+  position: relative;
+}
+.picture {
+  position: absolute;
+  transform: translateX(-50%);
+  /* transition: z-index 0.7s; */
+}
+.picture:hover {
+  z-index: 10;
+}
+.picture1 {
+  width: 17vw;
+  height: 22vw;
+  top: 5vh;
+  left: 40vw;
+  background-color: #999;
+  z-index: 2;
+}
+.picture2 {
+  width: 17vw;
+  height: 22vw;
+  top: 21vh;
+  left: 30vw;
+  background-color: #888;
+  z-index: 1;
+}
+.picture3 {
+  width: 15vw;
+  height: 17vw;
+  top: 14vh;
+  right: 21vw;
+  background-color: #777;
+  z-index: 4;
+}
+.picture4 {
+  width: 25vw;
+  height: 25vw;
+  top: 27vh;
+  right: 26vw;
+  background-color: #666;
+  z-index: 3;
 }

@@ -74,4 +74,4 @@ function update() {
   });
   requestAnimationFrame(update.bind(this));
 }
-update();
+// update();
