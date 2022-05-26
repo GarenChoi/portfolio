@@ -39,6 +39,44 @@ function scroll() {
     ease: "linear",
   });
 
+  if (
+    document.querySelector("#main h1").getBoundingClientRect().left <
+    window.innerWidth / 12
+  ) {
+    gsap.to("#main h1 .title1", {
+      duration: 1,
+      y:
+        (document.querySelector("#main h1").getBoundingClientRect().left -
+          window.innerHeight / 2) *
+        0.15,
+      ease: "ease-out",
+    });
+    gsap.to("#main h1 .title2", {
+      duration: 1,
+      x:
+        (document.querySelector("#main h1").getBoundingClientRect().left -
+          window.innerHeight / 2) *
+        0.1,
+      ease: "ease-out",
+    });
+    gsap.to("#main h1 .title3", {
+      duration: 1,
+      y:
+        -(
+          document.querySelector("#main h1").getBoundingClientRect().left -
+          window.innerHeight / 2
+        ) * 0.15,
+      ease: "ease-out",
+    });
+  } else {
+    gsap.to("#main h1 > div", {
+      duration: 1,
+      x: 0,
+      y: 0,
+      ease: "linear",
+    });
+  }
+
   infoInner.forEach((el, index) => {
     if (index % 2 == 1) {
       gsap.to(infoInner[index], {

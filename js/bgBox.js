@@ -1,10 +1,11 @@
 // const heart = "<img src='img/eyes1.png' alt='이미지'>";
-const star = "<img src='img/smiley1.png' alt='이미지'> ";
-const cloud = "<img src='img/basketball2.png' alt='이미지'>";
-const cloud1 = "<img src='img/flower1.png' alt='이미지'>";
+const star = "<img class='bgSmile' src='img/smiley1.png' alt='이미지'> ";
+const cloud = "<img class='bgBall' src='img/basketball2.png' alt='이미지'>";
+const cloud1 = "<img class='bgFlower' src='img/flower1.png' alt='이미지'>";
+const blob = "<img class='bgBlob' src='img/purpleblob1.png' alt='이미지'>";
 
-const data = [star, cloud, cloud1];
-const max = 3;
+const data = [star, cloud, cloud1, blob];
+const max = 4;
 let particles = [];
 
 class Ball {
