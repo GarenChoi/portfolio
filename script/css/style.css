@@ -12,12 +12,94 @@ html {
 body {
   background: #aee3ff;
 }
+.wingBox {
+  position: fixed;
+  top: -10vh;
+  right: -20vw;
+}
+.wing {
+  width: 80vw;
+  animation: wing 20s linear infinite;
+  opacity: 0;
+}
+@keyframes wing {
+  0% {
+    transform: rotateX(0) rotateY(0) rotateZ(0);
+  }
+  43% {
+    transform: rotateX(0) rotateY(0) rotateZ(0);
+  }
+  45% {
+    transform: rotateX(30deg) rotateY(30deg) rotateZ(-10deg);
+  }
+  50% {
+    transform: rotateX(0) rotateY(0) rotateZ(0);
+  }
+  52% {
+    transform: rotateX(-30deg) rotateY(-30deg) rotateZ(10deg);
+  }
+  60% {
+    transform: rotateX(0) rotateY(0) rotateZ(0);
+  }
+  100% {
+    transform: rotateX(0) rotateY(0) rotateZ(0);
+  }
+}
+.purple {
+  width: 30vw;
+  position: fixed;
+  bottom: 30vh;
+  left: 1vw;
+  z-index: 1;
+  opacity: 0;
+}
+.purpleBlop {
+  width: 60vw;
+  position: absolute;
+  top: -20vw;
+  right: -20vw;
+  transform: rotateZ(-90deg);
+}
+.spiral {
+  width: 8vw;
+  position: absolute;
+  animation: changeC 10s linear infinite;
+}
+@keyframes changeC {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+.spiral1 {
+  top: 10vh;
+  left: 65%;
+}
+.spiral2 {
+  bottom: 20vh;
+  left: 40%;
+}
+.spiral3 {
+  top: 1vh;
+  left: 80%;
+}
+.spiral4 {
+  bottom: 10vh;
+  left: 10%;
+}
+.spiral5 {
+  bottom: 20vh;
+  right: 2%;
+}
 #wrap {
   position: fixed;
   top: 0;
   left: 0;
   display: flex;
   z-index: 10;
+  opacity: 0;
 }
 #main {
   width: 100vw;

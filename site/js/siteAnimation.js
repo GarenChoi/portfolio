@@ -1,3 +1,6 @@
+gsap.set("#wrap, .star1, .pinkBall", {
+  opacity: 1,
+});
 var s = skrollr.init();
 
 const infoInner = document.querySelectorAll(".infoInner");
@@ -256,18 +259,18 @@ gsap.to(".pinkBall", {
   repeat: -1,
   ease: "linear",
 });
-gsap.to(".smile", {
-  duration: 10,
-  rotateZ: "-360deg",
-  ease: "linear",
-  repeat: -1,
-});
-gsap.to(".basketball", {
-  duration: 80,
-  rotateZ: "360deg",
-  ease: "linear",
-  repeat: -1,
-});
+// gsap.to(".smile", {
+//   duration: 10,
+//   rotateZ: "-360deg",
+//   ease: "linear",
+//   repeat: -1,
+// });
+// gsap.to(".basketball", {
+//   duration: 80,
+//   rotateZ: "360deg",
+//   ease: "linear",
+//   repeat: -1,
+// });
 gsap.to(".eyes", {
   duration: 5,
   rotateZ: "360deg",

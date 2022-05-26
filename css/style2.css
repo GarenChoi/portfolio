@@ -4,103 +4,14 @@
   font-family: "GmarketSans";
 }
 body {
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-
-#wrap {
-  width: 100%;
-  height: 100vh;
-  background-image: url("../img/bgLine.svg");
+  background-image: url("../img/mainBG1.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
-  background-color: #8219c6;
+  background-size: 101vw 101vh;
   overflow: hidden;
-  /* position: relative;
-  z-index: 5;
-  animation: bgColor 30s linear infinite; */
 }
-@keyframes bgColor {
-  0% {
-    background-color: #ac2effa4;
-  }
-  10% {
-    background-color: rgba(255, 24, 24, 0.603);
-  }
-  30% {
-    background-color: rgba(0, 163, 0, 0.377);
-  }
-  50% {
-    background-color: rgba(95, 38, 252, 0.637);
-  }
-  70% {
-    background-color: rgba(255, 24, 139, 0.651);
-  }
-  90% {
-    background-color: rgba(28, 191, 255, 0.575);
-  }
-  100% {
-    background-color: #ac2effa4;
-  }
-}
-/* #webgl-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  animation: moveCanvas 30s ease-in infinite;
-}
-@keyframes moveCanvas {
-  0% {
-    left: 0;
-  }
-  10% {
-    left: -15vw;
-    top: 5vh;
-  }
-  20% {
-    left: -11vw;
-    top: -5vh;
-  }
-  40% {
-    left: 12vw;
-    top: 3vh;
-  }
-  50% {
-    left: 0;
-    top: 1vh;
-  }
-  60% {
-    left: 20vw;
-    top: -7vh;
-  }
-  70% {
-    left: 23vw;
-    top: 6vh;
-  }
-  90% {
-    left: -23vw;
-    top: 3vh;
-  }
-  100% {
-    left: 0;
-  }
-} */
-#bgBox {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50vw;
-  height: 50vh;
-  z-index: 10;
-}
-#bgBox > img {
-  position: absolute;
-}
+
 #section1 {
   width: 100%;
   height: 100vh;
@@ -109,9 +20,6 @@ body {
   justify-content: center;
   align-items: center;
   color: #fff;
-  white-space: nowrap;
-  position: relative;
-  z-index: 15;
 }
 
 #section1 h1 {
@@ -120,6 +28,7 @@ body {
   display: flex;
   font-weight: bold;
   user-select: none;
+  animation-name: bounce;
   animation-delay: 1s;
   animation-duration: 5s;
   animation-iteration-count: infinite;
@@ -131,29 +40,27 @@ body {
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: contain;
+  animation-name: shake;
   animation-iteration-count: infinite;
   animation-duration: 4s;
-  position: absolute;
 }
 #section1 h1 .o1 {
   background-image: url("../img/basketball1.png");
   animation-delay: 1.2s;
-  left: 7vw;
 }
 #section1 h1 .o2 {
   background-image: url("../img/football1.png");
   animation-delay: 1.4s;
-  left: 37vw;
 }
 #section1 h1 .o3 {
   background-image: url("../img/tennis_ball1.png");
   animation-delay: 1.6s;
-  left: 56vw;
 }
 #section1 p {
   font-size: 2.5vw;
   font-weight: bold;
   user-select: none;
+  animation-name: bounce;
   animation-delay: 1s;
   animation-duration: 5s;
   animation-iteration-count: infinite;
@@ -200,10 +107,8 @@ body {
 }
 .goBtn {
   margin-top: 3.5vw;
-  position: absolute;
-  top: 0;
-  min-width: 10vw;
-  min-height: 10vw;
+  width: 10vw;
+  height: 10vw;
   border-radius: 50%;
   background: #30eb00;
   display: flex;
@@ -286,8 +191,6 @@ body {
   border-radius: 50%;
   background: #000;
 }
-
-/* section2 */
 #section2 {
   width: 100%;
   height: 100vh;
@@ -295,7 +198,6 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  z-index: 15;
 }
 #section2 .box {
   user-select: none;
@@ -305,46 +207,43 @@ body {
   background-size: cover;
   background-position: center;
   position: relative;
-  transition: transform 0.5s;
+  transform: scale(0);
+  transition: transform 0.3s;
+}
+#section2.next .box {
+  transform: scale(1);
 }
 #section2 .box:hover {
   cursor: pointer;
   transform: scale(1.15);
 }
-#section2 .box1:hover h3 {
-  transform: translate(-30%, -80%) rotateZ(-30deg);
-}
-#section2 .box2:hover h3 {
-  transform: translate(20%, -80%) rotateZ(25deg);
-}
-#section2 .box:hover .ball {
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
 #section2 .box1 {
-  background-image: url(../img/box1.jpg);
+  background-image: url(../img//box1.jpg);
   margin-right: 2vw;
 }
 #section2 .box2 {
-  background-image: url(../img/box2.jpg);
+  background-image: url(../img//box2.jpg);
   margin-left: 2vw;
 }
 #section2 .box h3 {
   font-size: 10vw;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-  transition: transform 0.5s 0.1s;
+  top: 53%;
+  transform: translateY(-47%) scale(0) rotateY(720deg);
+}
+#section2.next .box h3 {
+  transform: translateY(-47%) scale(1) rotateY(0deg);
 }
 #section2 .box1 h3 {
   left: -7vw;
   -webkit-text-stroke: 0.3vw #e15587;
+  transition: transform 0.7s 0.2s;
 }
 #section2 .box2 h3 {
   left: -5vw;
   color: #fff;
   -webkit-text-stroke: 0.3vw #30eb00;
+  transition: transform 0.7s 0.4s;
 }
 #section2 .ball {
   width: 9.5vw;
@@ -353,34 +252,93 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
-  /* animation-name: rotateBall; */
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
+  opacity: 0;
+  transform: translateY(-50%) scale(3);
 }
 #section2 .ball1 {
   background-image: url(../img/basketball1.png);
-  top: -18%;
-  left: -27%;
-  animation-delay: 0s;
-  animation-duration: 6s;
+  top: 50%;
+  left: 20%;
+}
+#section2.next .ball1 {
+  animation: moveBall1 1.5s 0.5s forwards, rotateBall 6s 0s linear infinite;
+}
+@keyframes moveBall1 {
+  0% {
+    opacity: 0;
+    top: 50%;
+    transform: translateY(-50%) scale(3);
+  }
+  10% {
+    opacity: 0.5;
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    top: 13%;
+    left: 18%;
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 #section2 .ball2 {
   background-image: url(../img/football1.png);
-  bottom: -20%;
-  left: 20%;
-  animation-delay: 0s;
-  animation-duration: 4s;
+  bottom: 50%;
+  left: 65%;
 }
-
+#section2.next .ball2 {
+  animation: moveBall2 1.2s 0.6s forwards, rotateBall 4s 0s linear infinite;
+}
+@keyframes moveBall2 {
+  0% {
+    opacity: 0;
+    bottom: 50%;
+    transform: translateY(-50%) scale(2);
+  }
+  10% {
+    opacity: 0.5;
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    bottom: 12%;
+    left: 26%;
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 #section2 .ball3 {
   width: 8.5vw;
   height: 8.5vw;
   background-image: url(../img/tennis_ball1.png);
-  top: -15%;
-  right: -30%;
-  animation-delay: 0s;
-  animation-duration: 5s;
+  top: 10%;
+  right: 70%;
+}
+#section2.next .ball3 {
+  animation: moveBall3 1.8s 0.4s forwards, rotateBall 5s 0s linear infinite;
+}
+@keyframes moveBall3 {
+  0% {
+    top: 10%;
+    right: 70%;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    top: 15%;
+    right: 18.5%;
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 @keyframes rotateBall {
   0% {
@@ -390,7 +348,6 @@ body {
     transform: rotateZ(360deg);
   }
 }
-
 #section2 .octo {
   width: 9.5vw;
   height: 9.5vw;
@@ -403,9 +360,10 @@ body {
   right: 0;
   user-select: none;
   pointer-events: none;
+}
+#section2.next .octo {
   animation: moveOcto 100s 0s linear infinite, shakeOcto 3s 0s linear infinite;
 }
-
 @keyframes moveOcto {
   0% {
     bottom: 0;

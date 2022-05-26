@@ -1,3 +1,6 @@
+gsap.set("#section1", {
+  opacity: 1,
+});
 gsap.set("#section1 h1", {
   y: "-60vh",
   scale: 2,

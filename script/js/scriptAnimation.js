@@ -1,3 +1,6 @@
+gsap.set("#wrap, .purple, .wing", {
+  opacity: 1,
+});
 var s = skrollr.init();
 
 const infoInner = document.querySelectorAll(".infoInner");
@@ -15,10 +18,26 @@ function scroll() {
 
   gsap.to("#wrap", {
     duration: 1,
-    translateX: -goLeft,
+    x: -goLeft,
     ease: "linear",
   });
-  // console.log(infoInner[0].getBoundingClientRect().left / window.innerWidth);
+  gsap.to(".wingBox", {
+    duration: 1,
+    x: -goLeft * 0.08,
+    y: -goLeft * 0.03,
+    ease: "linear",
+  });
+  gsap.to(".purple", {
+    duration: 1,
+    x: goLeft * 0.07,
+    y: goLeft * 0.02,
+    ease: "linear",
+  });
+  gsap.to(".spiral", {
+    duration: 1.5,
+    x: goLeft * 0.07,
+    ease: "linear",
+  });
 
   infoInner.forEach((el, index) => {
     if (index % 2 == 1) {
@@ -105,6 +124,13 @@ setTimeout(() => {
     }, 500 * (index + 1));
   });
 }, 3000);
+
+gsap.set(".wingBox", {
+  translateX: "100vw",
+});
+gsap.set(".purple", {
+  translateX: "-100vw",
+});
 
 document.querySelector(".site").addEventListener("click", () => {
   gsap.to(document.querySelector("body"), {
