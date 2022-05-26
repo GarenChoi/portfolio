@@ -348,11 +348,11 @@ section .infoInner {
 
 .infoInner .viewBox {
   display: flex;
-  flex-direction: row-reverse;
+  /* flex-direction: row-reverse; */
   align-items: center;
   position: absolute;
-  bottom: -3.5vw;
-  right: -8vw;
+  bottom: -2.9vw;
+  right: 0vw;
 }
 
 /* .infoInner:hover .viewBox {

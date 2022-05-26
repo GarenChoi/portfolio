@@ -141,6 +141,7 @@ body {
 .picture {
   position: absolute;
   transform: translateX(-50%);
+  border: 3px solid #000;
   /* transition: z-index 0.7s; */
 }
 .picture:hover {
@@ -150,7 +151,7 @@ body {
   width: 17vw;
   height: 22vw;
   top: 5vh;
-  left: 40vw;
+  left: 43vw;
   background-color: #999;
   z-index: 2;
 }
@@ -158,7 +159,7 @@ body {
   width: 17vw;
   height: 22vw;
   top: 21vh;
-  left: 30vw;
+  left: 33vw;
   background-color: #888;
   z-index: 1;
 }
@@ -166,7 +167,7 @@ body {
   width: 15vw;
   height: 17vw;
   top: 14vh;
-  right: 21vw;
+  right: 18vw;
   background-color: #777;
   z-index: 4;
 }
@@ -174,7 +175,31 @@ body {
   width: 25vw;
   height: 25vw;
   top: 27vh;
-  right: 26vw;
+  right: 23vw;
   background-color: #666;
   z-index: 3;
+}
+.picture5 {
+  width: 50vw;
+  height: 20vw;
+  top: 90vh;
+  left: 30vw;
+  background-color: #e3fe78;
+  z-index: 5;
+}
+.picture6 {
+  width: 40vw;
+  height: 20vw;
+  top: 105vh;
+  right: -5vw;
+  background-color: #aee3ff;
+  z-index: 6;
+}
+.picture7 {
+  width: 29vw;
+  height: 30vw;
+  top: 120vh;
+  left: 37vw;
+  background-color: #aeffce;
+  z-index: 7;
 }

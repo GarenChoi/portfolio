@@ -86,6 +86,21 @@ function scroll() {
     y: scrollTop * 0.1,
     ease: "linear",
   });
+  gsap.to(".picture5", {
+    duration: 2.2,
+    y: -scrollTop * 0.05,
+    ease: "linear",
+  });
+  gsap.to(".picture6", {
+    duration: 2.2,
+    y: scrollTop * 0.05,
+    ease: "linear",
+  });
+  gsap.to(".picture7", {
+    duration: 2.2,
+    y: scrollTop * 0.15,
+    ease: "linear",
+  });
 
   requestAnimationFrame(scroll);
 }
