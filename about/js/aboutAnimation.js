@@ -1,3 +1,6 @@
+gsap.set("#wrap", {
+  opacity: 1,
+});
 gsap.set("#section1 h1", {
   y: "-60vh",
   scale: 2,
@@ -101,6 +104,23 @@ function scroll() {
     y: scrollTop * 0.15,
     ease: "linear",
   });
+  let xxyy = true;
+  if (
+    scrollTop + window.innerHeight >=
+      document.querySelector("#wrap").offsetHeight &&
+    xxyy
+  ) {
+    // document.querySelector(".end").style.animationName = "end";
+    gsap.to(".end", {
+      duration: 1.5,
+      delay: 1,
+      x: 0,
+      y: 0,
+      rotateZ: 0,
+      ease: "back.out(1.5)",
+    });
+    xxyy = false;
+  }
 
   requestAnimationFrame(scroll);
 }
