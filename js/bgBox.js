@@ -1,9 +1,9 @@
 // const heart = "<img src='img/eyes1.png' alt='이미지'>";
-const smile = "<img class='bgSmile' src='../img/smiley1.png' alt='이미지'> ";
-const ball = "<img class='bgBall' src='../img/basketball2.png' alt='이미지'>";
-const flower = "<img class='bgFlower' src='../img/flower1.png' alt='이미지'>";
-const blob = "<img class='bgBlob' src='../img/purpleblob1.png' alt='이미지'>";
-const blob2 = "<img class='bgBlob2' src='../img/yellowblob1.png' alt='이미지'>";
+const smile = "<img class='bgSmile' src='img/smiley1.png' alt='이미지'> ";
+const ball = "<img class='bgBall' src='img/basketball2.png' alt='이미지'>";
+const flower = "<img class='bgFlower' src='img/flower1.png' alt='이미지'>";
+const blob = "<img class='bgBlob' src='img/purpleblob1.png' alt='이미지'>";
+const blob2 = "<img class='bgBlob2' src='img/yellowblob1.png' alt='이미지'>";
 
 const data = [smile, ball, flower, blob, blob2, smile, ball, flower];
 const max = 8;
