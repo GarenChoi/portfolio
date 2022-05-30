@@ -113,6 +113,9 @@ body {
 #bgBox > .bgBlob.highlight {
   filter: hue-rotate(45deg);
 }
+#bgBox > .bgBlob2.highlight {
+  filter: hue-rotate(60deg);
+}
 #section1 {
   width: 100%;
   height: 100vh;

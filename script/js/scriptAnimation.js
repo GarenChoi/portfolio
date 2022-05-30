@@ -22,13 +22,13 @@ function scroll() {
     ease: "linear",
   });
   gsap.to(".wingBox", {
-    duration: 1,
+    duration: 3,
     x: -goLeft * 0.08,
     y: -goLeft * 0.03,
     ease: "linear",
   });
   gsap.to(".purple", {
-    duration: 1,
+    duration: 4,
     x: goLeft * 0.07,
     y: goLeft * 0.02,
     ease: "linear",

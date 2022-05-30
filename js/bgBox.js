@@ -1,11 +1,12 @@
 // const heart = "<img src='img/eyes1.png' alt='이미지'>";
-const star = "<img class='bgSmile' src='img/smiley1.png' alt='이미지'> ";
-const cloud = "<img class='bgBall' src='img/basketball2.png' alt='이미지'>";
-const cloud1 = "<img class='bgFlower' src='img/flower1.png' alt='이미지'>";
-const blob = "<img class='bgBlob' src='img/purpleblob1.png' alt='이미지'>";
+const smile = "<img class='bgSmile' src='../img/smiley1.png' alt='이미지'> ";
+const ball = "<img class='bgBall' src='../img/basketball2.png' alt='이미지'>";
+const flower = "<img class='bgFlower' src='../img/flower1.png' alt='이미지'>";
+const blob = "<img class='bgBlob' src='../img/purpleblob1.png' alt='이미지'>";
+const blob2 = "<img class='bgBlob2' src='../img/yellowblob1.png' alt='이미지'>";
 
-const data = [star, cloud, cloud1, blob];
-const max = 4;
+const data = [smile, ball, flower, blob, blob2, smile, ball, flower];
+const max = 8;
 let particles = [];
 
 class Ball {
@@ -64,7 +65,6 @@ function randomInt(min, max) {
 }
 
 for (let i = 0; i < max; i++) {
-  particles.push(new Ball(data[i]));
   particles.push(new Ball(data[i]));
 }
 

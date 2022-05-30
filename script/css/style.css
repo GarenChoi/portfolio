@@ -238,7 +238,8 @@ section .infoInner.startTop {
 .infoInner.startTop .viewBox {
   margin: 0 0 1vw 0;
 }
-.infoInner .viewBox > div {
+.infoInner .viewBox > div,
+.infoInner .viewBox > a {
   background-color: #000;
   font-weight: 100;
   font-size: 1.5vw;
@@ -253,7 +254,17 @@ section .infoInner.startTop {
   border-radius: 50%;
   margin-right: 0.3vw;
 }
+.arrow > span {
+  font-size: 2vw;
+  transform: rotateZ(180deg);
+}
+.startTop .arrow > span {
+  font-size: 2vw;
+  transform: rotateY(180deg) rotateZ(0deg);
+}
 .viewBox .pageInfo {
+  color: #fff;
+  text-decoration: none;
   width: 18vw;
   height: 3vw;
   display: flex;
@@ -284,21 +295,41 @@ section .infoInner.startTop {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-image: url(../../img/mouseEffect.jpg);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  /* background-color: rgba(0, 0, 0, 0.753); */
   background-blend-mode: darken;
 }
-/* .imgBox > img {
-  width: 60vw;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -43%);
-  width: 60vw;
-} */
+.infoInner1 .img {
+  background-image: url(../img/mouseEffect.jpg);
+}
+.infoInner2 .img {
+  background-image: url(../img/parallaxEffect.jpg);
+}
+.infoInner3 .img {
+  background-image: url(../img/slideEffect.jpg);
+}
+.infoInner4 .img {
+  background-image: url(../img/quizEffect.png);
+}
+.infoInner5 .img {
+  background-image: url(../img/searchEffect.png);
+}
+.infoInner6 .img {
+  background-image: url(../img/musicPlayer.jpg);
+}
+.infoInner7 .img {
+  background-image: url(../img/memoryGame.png);
+}
+.infoInner8 .img {
+  background-image: url(../img/typingGame.png);
+}
+.infoInner9 .img {
+  background-image: url(../img/tetrisGame.jpg);
+}
+.infoInner10 .img {
+  background-image: url(../img/gameSite.png);
+}
 
 #section2 {
   width: 100vw;
