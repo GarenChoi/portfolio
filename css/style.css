@@ -35,6 +35,22 @@ body {
   transform: translate(-50%, -50%);
   font-size: 5vw;
   color: #333;
+  user-select: none;
+  animation: loading 3s linear infinite;
+}
+@keyframes loading {
+  0% {
+    transform: translate(-50%, -50%) rotateZ(0) rotateX(0);
+  }
+  25% {
+    transform: translate(-50%, -50%) rotateZ(20deg) rotateX(45deg);
+  }
+  75% {
+    transform: translate(-50%, -50%) rotateZ(-20deg) rotateX(-45deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateZ(0) rotateX(0);
+  }
 }
 #wrap {
   width: 100%;
