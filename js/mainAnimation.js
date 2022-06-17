@@ -452,31 +452,31 @@ function mainA() {
     }, 2800);
   });
 }
-
-loadingA();
-let loaded = false;
-window.addEventListener("DOMContentLoaded", () => {
-  loaded = true;
-  setTimeout(() => {
-    loaded = true;
-  }, 4000);
-  setTimeout(() => {
-    gsap.to(".loadingText", {
-      duration: 0.3,
-      opacity: 0,
-      ease: "linear",
-    });
-    gsap.to("#loading", {
-      duration: 0.5,
-      opacity: 0,
-      ease: "linear",
-      delay: 0.5,
-    });
-    setTimeout(() => {
-      document.querySelector("#loading").style.display = "none";
-      if (loaded) {
-        mainA();
-      }
-    }, 1000);
-  }, 2000);
-});
+mainA();
+// loadingA();
+// let loaded = false;
+// window.addEventListener("DOMContentLoaded", () => {
+//   loaded = true;
+//   setTimeout(() => {
+//     loaded = true;
+//   }, 4000);
+//   setTimeout(() => {
+//     gsap.to(".loadingText", {
+//       duration: 0.3,
+//       opacity: 0,
+//       ease: "linear",
+//     });
+//     gsap.to("#loading", {
+//       duration: 0.5,
+//       opacity: 0,
+//       ease: "linear",
+//       delay: 0.5,
+//     });
+//     setTimeout(() => {
+//       document.querySelector("#loading").style.display = "none";
+//       if (loaded) {
+//         mainA();
+//       }
+//     }, 1000);
+//   }, 2000);
+// });
